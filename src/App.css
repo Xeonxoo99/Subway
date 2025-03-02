@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.best-item-content img {
+    @apply mb-4;
+    @apply h-28;
+    @apply w-2xs
+}
+
+.best-item-content p {
+    @apply text-[12px];
+    @apply text-[#987703];
+}
+
+.best-item-content h2 {
+    @apply text-[22px];
+    @apply text-[#018c3b];
+    @apply font-semibold;
+}
