@@ -3,7 +3,7 @@ import logo from '@assets/subway_logo.svg'
 function Header() {
     const header = document.querySelector('header');
     return (
-        <header className="fixed top-0 left-0 w-full z-9999 bg-transparent hidden">
+        <header className="fixed top-0 left-0 w-full z-9999 bg-transparent ">
             <div className="w-4/6 flex justify-between mx-auto items-center py-6">
                 <a href="/" className="w-3xs">
                     <img src={logo} alt="Subway Logo" className="w-fit" />

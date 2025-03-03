@@ -6,6 +6,8 @@ import BestItem from './components/BestItem'
 import SearchBetter from './components/SearchBetter'
 import Offer from './components/Offer'
 import Store from './components/Store'
+import FollowUs from './components/FollowUs'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
       <SearchBetter></SearchBetter>
       <Offer></Offer>
       <Store></Store>
+      <FollowUs></FollowUs>
+      <Footer></Footer>
     </>
   )
 }

@@ -50,7 +50,7 @@ function Offer() {
                     </div>
                 </div>
                 {/* 배경에 텍스트 */}
-                <img className='absolute bottom-0' src={subway} alt="subway" />
+                <img className='absolute -bottom-2' src={subway} alt="subway" />
             </div>
         </>
     )
