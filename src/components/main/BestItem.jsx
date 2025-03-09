@@ -1,9 +1,9 @@
-import egg_slice from '@assets/egg_slice.png'
-import chicken_slice from '@assets/chicken_slice.png'
-import Rotisserie_Barbecue_Chicken from '@assets/Rotisserie_Barbecue_Chicken.png'
-import Italian_bmt from '@assets/Italian_bmt.png'
-import egg_mayo from '@assets/egg_mayo.png'
-import Ham from '@assets/Ham.png'
+import egg_slice from '@assets/main/egg_slice.png'
+import chicken_slice from '@assets/main/chicken_slice.png'
+import Rotisserie_Barbecue_Chicken from '@assets/main/Rotisserie_Barbecue_Chicken.png'
+import Italian_bmt from '@assets/main/Italian_bmt.png'
+import egg_mayo from '@assets/main/egg_mayo.png'
+import Ham from '@assets/main/Ham.png'
 
 function BestItem() {
     return (

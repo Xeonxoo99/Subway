@@ -1,9 +1,9 @@
-import eggslice from '@assets/eggslice_menu.png'
-import greenS from '@assets/greenS.png'
-import subPick from '@assets/subPick.png'
-import soupL from '@assets/soupL.png'
-import soupR from '@assets/soupR.png'
-import freshNgood from '@assets/fresh&good.png'
+import eggslice from '@assets/main/eggslice_menu.png'
+import greenS from '@assets/main/greenS.png'
+import subPick from '@assets/main/subPick.png'
+import soupL from '@assets/main/soupL.png'
+import soupR from '@assets/main/soupR.png'
+import freshNgood from '@assets/main/fresh&good.png'
 
 function Promotion() {
     return (

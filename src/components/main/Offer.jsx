@@ -1,5 +1,5 @@
-import subway from '@assets/subway.png'
-import offer_menu from '@assets/offer_menu.png'
+import subway from '@assets/main/subway.png'
+import offer_menu from '@assets/main/offer_menu.png'
 
 function Offer() {
     return (
@@ -50,7 +50,7 @@ function Offer() {
                     </div>
                 </div>
                 {/* 배경에 텍스트 */}
-                <img className='absolute bottom-0' src={subway} alt="subway" />
+                <img className='absolute -bottom-2' src={subway} alt="subway" />
             </div>
         </>
     )

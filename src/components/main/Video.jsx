@@ -1,4 +1,4 @@
-import video from "@assets/main_video.mp4"
+import video from "@assets/main/main_video.mp4"
 
 function Video(){
     return(

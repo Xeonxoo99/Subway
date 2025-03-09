@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 .best-item-content img {
     @apply mb-4;
     @apply h-28;
@@ -15,4 +19,43 @@
     @apply text-[22px];
     @apply text-[#018c3b];
     @apply font-semibold;
+}
+
+/* 매장 카드 */
+.store-card {
+    @apply w-1/4 bg-[#fce07f];
+}
+
+.store-details {
+    @apply flex flex-col pl-3 py-7 gap-3;
+}
+
+.store-label {
+    @apply w-[80px] text-sm;
+}
+
+.store-value {
+    @apply text-sm;
+}
+
+/* 버튼 공통 스타일 */
+.btn-section {
+    @apply w-44 h-16 border-none bg-[#009132] px-6 py-2 text-xl text-[#ffffff];
+}
+
+.footer-content li {
+    @apply opacity-60;
+    @apply text-sm;
+}
+
+.footer-content p, dt {
+    @apply opacity-60;
+}
+
+.footer-content dl {
+    @apply opacity-60;
+}
+
+.footer-content address {
+    @apply opacity-60;
 }
