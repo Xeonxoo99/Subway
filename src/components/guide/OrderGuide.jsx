@@ -79,7 +79,7 @@ function OrderGuide() {
                     {/* 선택된 버튼에 해당하는 설명 */}
                     <div className="flex flex-col">
                         {/* 기본 설명 */}
-                        <div className="flex mb-10 w-full h-">
+                        <div className="flex mb-10 w-full h-80">
                             <div className="text-left w-1/2">
                                 <h2 className="text-3xl mb-6">{selectedMenu.want}</h2>
                                 <h2 className="text-3xl font-bold text-[#008e3c] mb-10">{selectedMenu.name}</h2>
@@ -173,13 +173,17 @@ function OrderGuide() {
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[-100px]">
                     <img src={tip_bottom} alt="tip bottom" />
+                    <div className="flex flex-col absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-3">
+                        <h4 className="text-m flex flex-row gap-2 text-[#008e3c] font-bold "><div className="border-2 border-[#008e3c] rounded-full w-6 h-6 text-center text-sm">?</div>더 많은 레시피가 궁금하신가요?</h4>
+                        <p className="text-sm text-gray-400">지금 바로 서브웨이 유튜브를 검색해보세요 ! <br/> 다양한 주문 TIP이 가득합니다. </p>
+                        <button className="bg-[#008e3c] py-2 border-0 rounded-xl text-[#ffffff]">서브웨이 유튜브 바로가기 〉</button>
+                    </div>
                 </div>
             </section>
         </>
