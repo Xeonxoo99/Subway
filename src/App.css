@@ -1,8 +1,70 @@
-@import "tailwindcss";
-
 html {
     scroll-behavior: smooth;
 }
+
+@import "tailwindcss";
+
+/***************************** HEADER 영역 *****************************/
+/* header 밑줄 효과 */
+@layer components {
+    .underline-effect::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: black;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .underline-effect:hover::after {
+        width: 100%;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(10px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.animate-slideDown {
+    animation: slideDown 1s ease-in-out forwards;
+}
+
+.animate-slideUp {
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+/******************************************** MENU SUBMENU EFFECT ********************************************/
+
+/* 서브메뉴 애니메이션 */
+.submenu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.submenu.show {
+    max-height: 1000px;  /* 임의로 큰 값으로 설정 */
+    opacity: 1;
+}
+
+/******************************************** BESTITEM 영역 ********************************************/
 
 .best-item-content img {
     @apply mb-4;
@@ -48,7 +110,8 @@ html {
     @apply text-sm;
 }
 
-.footer-content p, dt {
+.footer-content p,
+dt {
     @apply opacity-60;
 }
 
@@ -59,3 +122,4 @@ html {
 .footer-content address {
     @apply opacity-60;
 }
+
