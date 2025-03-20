@@ -1,4 +1,4 @@
-import searchBetter_menu from '@assets/main/searchBetter_menu.png'
+import searchBetter_menu from '@assets/main/search/searchBetter_menu.png'
 
 
 function SearchBetter() {

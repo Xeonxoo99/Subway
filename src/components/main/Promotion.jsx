@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import eggslice from '@assets/main/eggslice_menu.png';
-import greenS from '@assets/main/greenS.png';
-import subPick from '@assets/main/subPick.png';
-import soupL from '@assets/main/soupL.png';
-import soupR from '@assets/main/soupR.png';
-import freshNgood from '@assets/main/fresh&good.png';
-import gient_sub from '@assets/main/gient_sub.png';
-import cookie from '@assets/main/cookie.png';
-import morning from '@assets/main/morning.png';
-import bacon_cheesy from '@assets/main/bacon_cheesy.png';
-import party_platter from '@assets/main/party_platter.png';
-import abocado from '@assets/main/abocado.png';
-import sauce from '@assets/main/sauce.png';
-import cookies_long from '@assets/main/cookies_long.png';
-import sub from '@assets/main/sub.png';
-import cha from '@assets/main/cha.png';
+import eggslice from '@assets/main/promotion/eggslice_menu.png';
+import greenS from '@assets/main/promotion/greenS.png';
+import subPick from '@assets/main/promotion/subPick.png';
+import soupL from '@assets/main/promotion/soupL.png';
+import soupR from '@assets/main/promotion/soupR.png';
+import freshNgood from '@assets/main/promotion/fresh&good.png';
+import gient_sub from '@assets/main/promotion/gient_sub.png';
+import cookie from '@assets/main/promotion/cookie.png';
+import morning from '@assets/main/promotion/morning.png';
+import bacon_cheesy from '@assets/main/promotion/bacon_cheesy.png';
+import party_platter from '@assets/main/promotion/party_platter.png';
+import abocado from '@assets/main/promotion/abocado.png';
+import sauce from '@assets/main/promotion/sauce.png';
+import cookies_long from '@assets/main/promotion/cookies_long.png';
+import sub from '@assets/main/promotion/sub.png';
+import cha from '@assets/main/promotion/cha.png';
 
 function Promotion() {
     const promotions = [

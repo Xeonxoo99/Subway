@@ -1,7 +1,7 @@
-import anyang from '@assets/main/anyang.png'
-import anyang_plaza from '@assets/main/plaza.png'
-import anyang_bumgye from '@assets/main/anyang_bumgye.png'
-import anyang_pch from '@assets/main/anyang_pch.png'
+import anyang from '@assets/main/store/anyang.png'
+import anyang_plaza from '@assets/main/store/plaza.png'
+import anyang_bumgye from '@assets/main/store/anyang_bumgye.png'
+import anyang_pch from '@assets/main/store/anyang_pch.png'
 
 import '../../App.css'
 

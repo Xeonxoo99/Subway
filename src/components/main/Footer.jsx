@@ -1,5 +1,5 @@
-import facebook from '@assets/main/facebook.png'
-import insta from '@assets/main/instagram.png'
+import facebook from '@assets/main/footer/facebook.png'
+import insta from '@assets/main/footer/instagram.png'
 
 function Footer() {
     return (

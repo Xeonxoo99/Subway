@@ -1,5 +1,5 @@
-import subway from '@assets/main/subway.png'
-import offer_menu from '@assets/main/offer_menu.png'
+import subway from '@assets/main/offer/subway.png'
+import offer_menu from '@assets/main/offer/offer_menu.png'
 
 function Offer() {
     return (
