@@ -106,7 +106,7 @@ function BestItem() {
                     {/* 메뉴 섹션 */}
                     <div className='best-item-content grid grid-cols-3 gap-8 justify-items-center py-16'>
                         {visibleItems.map((item) => (
-                            <div key={item.id} className='flex flex-col text-center'>
+                            <div key={item.id} className='flex flex-col text-center cursor-pointer'>
                                 <motion.img
                                     src={item.img}
                                     alt={item.mini_title}

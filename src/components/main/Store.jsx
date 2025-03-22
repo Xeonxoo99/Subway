@@ -161,7 +161,7 @@ function Store() {
                 <div className="w-11/12 mx-auto flex gap-14">
                     {
                         store.map((store) => (
-                            <article className="store-card">
+                            <article className="store-card cursor-pointer">
                                 <img className="w-full h-[200px] object-cover" src={store.img} alt={store.store} />
                                 <div className="store-details">
                                     <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>

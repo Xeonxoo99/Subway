@@ -49,7 +49,7 @@ function SearchBetter() {
                 y: 150, // 이미지가 내려가는 거리
                 scrollTrigger: {
                     trigger: imgWrapperRef.current,
-                    start: 'top 70%',
+                    start: 'top 65%',
                     end: 'top 30%',
                     scrub: true,
                 },

@@ -157,7 +157,7 @@ function Promotion() {
                     return (
                         <motion.div
                             key={promotion.id}
-                            className="menu w-1/6 flex flex-col grow"
+                            className="menu w-1/6 flex flex-col grow cursor-pointer	"
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.2, duration: 0.5 }}
