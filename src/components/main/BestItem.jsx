@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion';
 
 // 클래식
 import chicken_slice from '@assets/main/bestItem/chicken_slice.png'
@@ -106,7 +107,13 @@ function BestItem() {
                     <div className='best-item-content grid grid-cols-3 gap-8 justify-items-center py-16'>
                         {visibleItems.map((item) => (
                             <div key={item.id} className='flex flex-col text-center'>
-                                <img src={item.img} alt={item.mini_title} />
+                                <motion.img
+                                    src={item.img}
+                                    alt={item.mini_title}
+                                    initial={{ opacity: 0, y: -50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: (visibleItems.indexOf(item) + 1) * 0.2, duration: 1 }}
+                                />
                                 <p>{item.mini_title}</p>
                                 <h2>{item.title}</h2>
                             </div>

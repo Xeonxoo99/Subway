@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+button, a{
+    cursor: pointer;
+}
+
 @import "tailwindcss";
 
 /***************************** HEADER 영역 *****************************/
