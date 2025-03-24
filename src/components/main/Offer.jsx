@@ -58,51 +58,45 @@
 
 // export default Offer;
 
-{/*
-    - 숫자가 올라갈 때 롤링하는 애니메이션 효과 넣기?
-    
-    1. numbers라는 배열에 0~9 넣기
-    2. 각 자릿수에 0~9까지의 수를 넣고 현재 숫자를 제외하곤 모두 숨김처리 (아래와 같이)
-    3. 숫자가 변경되면 위치 값을 변경하기 (translateY)
-    4. 끝에서부터 0이 되면 앞에 수를 하나 올리기?
-
-                    0
-                    10
-                    21 0
-                    32 10
-                    43 210
-                    54,321 < 현재 보이는 수
-                    65 432
-                    76 543
-                    87 654
-                    98 765
-                     9 876
-                       987
-                        98
-                         9
-
-        아 이건 지피티한테 물어봐도 이해를 하기 어려울 것 같아 포기,,
-        나중에 넣자!
-*/}
-
-
-
 import subway from '@assets/main/offer/subway.png'
 import offer_menu from '@assets/main/offer/offer_menu.png'
-import { useState,useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { CountUp } from 'countup.js';
 
 function Offer() {
-    const numbers = [0,1,2,3,4,5,6,7,8,9]
-    const [num, setNum] = useState(37525)
-
+    const [num, setNum] = useState(0);
+    const countUpRef = useRef(null);
+    const finalNumber = 37525;
 
     useEffect(() => {
-        let timer = setInterval(() => {
-            // setNum(count + 1);
-            setNum(num => num + 1);
+        // CountUp 초기화
+        const countUp = new CountUp(countUpRef.current, finalNumber, {
+            duration: 2, // 애니메이션 시간
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+        });
+
+        // 스크롤 이벤트로 시작
+        // 이 부분 이해가 안됌
+        const handleScroll = () => {
+            if (countUpRef.current && countUpRef.current.getBoundingClientRect().top < window.innerHeight) {
+                countUp.start(() => setNum(finalNumber));
+                window.removeEventListener('scroll', handleScroll);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        // 10초마다 숫자 증가
+        const timer = setInterval(() => {
+            setNum(prevNum => prevNum + 1);
         }, 10000);
 
-        return () => clearInterval(timer);
+        return () => {
+            clearInterval(timer);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
@@ -138,7 +132,7 @@ function Offer() {
                             <div>
                                 <h1>매장수</h1>
                                 <div className='flex flex-row gap-0.5'>
-                                    <h1 className='text-6xl w-46'>{num.toLocaleString()}</h1>
+                                    <h1 ref={countUpRef} className='text-6xl w-46'>{num.toLocaleString()}</h1>
                                     <p className='leading-22'>개</p>
                                 </div>
                             </div>

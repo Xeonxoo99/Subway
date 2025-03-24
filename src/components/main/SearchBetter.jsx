@@ -49,17 +49,17 @@ function SearchBetter() {
                 y: 150, // 이미지가 내려가는 거리
                 scrollTrigger: {
                     trigger: imgWrapperRef.current,
-                    start: 'top 65%',
+                    start: 'top 40%',
                     end: 'top 30%',
-                    scrub: true,
+                    scrub: 2,
                 },
             });
 
             ScrollTrigger.create({
                 trigger: imgWrapperRef.current,
-                start: 'top 70%',
+                start: 'top 40%',
                 end: 'top 30%',
-                scrub: true,
+                scrub: 2,
                 onUpdate: (self) => {
                     const imageIndex = Math.min(Math.floor(self.progress * images.length), images.length - 1);
                     setCurrentImage(imageIndex);

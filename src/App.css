@@ -10,6 +10,26 @@ button, a{
 
 /***************************** HEADER 영역 *****************************/
 /* header 밑줄 효과 */
+
+@layer components {
+    .li_items::before {
+        content: "";
+        position: absolute;
+        left: -11px;
+        top: 5px;
+        width: 1px;
+        height: 20px;
+        background-color: #bfbfbf;
+        pointer-events: none;
+    }
+
+    /* hover 상태에서 before 고정 */
+    .li_items:hover::before {
+        opacity: 0.6 !important;
+    }
+}
+
+
 @layer components {
     .underline-effect::after {
         content: "";

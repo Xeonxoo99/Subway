@@ -79,9 +79,8 @@ function Header() {
         >
             {/* Global nav */}
             <div
-                className={`transition-all duration-500 ${
-                    isScrolled || isNavVisible ? 'bg-[#fffff0] text-[#000000]' : 'bg-transparent text-white'
-                } ${isNavVisible ? 'max-h-96' : 'max-h-32'} overflow-hidden`}
+                className={`transition-all duration-500 ${isScrolled || isNavVisible ? 'bg-[#fffff0] text-[#000000]' : 'bg-transparent text-white'
+                    } ${isNavVisible ? 'max-h-96' : 'max-h-32'} overflow-hidden`}
                 onMouseLeave={handleNavMouseLeave}
             >
                 <div className="w-4/6 flex justify-between mx-auto items-center py-6">
@@ -113,17 +112,17 @@ function Header() {
 
             {/* Submenu */}
             <div
-                className={`w-full bg-[#fffff0]  text-[#000000] shadow-md transition-all duration-300 overflow-hidden ${
-                    isSubMenuVisible ? 'max-h-96 border-t border-gray-100' : 'max-h-0'
-                }`}
+                className={`w-full bg-[#fffff0]  text-[#000000] shadow-md transition-all duration-300 overflow-hidden ${isSubMenuVisible ? 'max-h-96 border-t border-gray-100' : 'max-h-0'
+                    }`}
                 onMouseEnter={handleSubMenuMouseEnter}
                 onMouseLeave={handleSubMenuMouseLeave}
             >
-                <div className="w-3/5 mx-auto flex flex-col items-center gap-4 py-6 text-lg font-semibold list-none">
+                {/* <div className="w-3/5 mx-auto flex flex-col items-center gap-4 py-6 text-lg font-semibold list-none"> */}
+                <div className="w-3/5 mx-auto flex items-center justify-center gap-6 py-6 text-lg font-semibold list-none">
                     {subMenus[hoveredMenu]?.map((item, index) => (
-                        <li key={index} className="relative cursor-pointer opacity-60 hover:opacity-100 underline-effect">
-                            {item}
-                        </li>
+                            <li key={index} className={`relative cursor-pointer opacity-60 ${index !== 0 ? 'li_items' : ''} hover:opacity-100 underline-effect`}>
+                                {item}
+                            </li>
                     ))}
                 </div>
             </div>
