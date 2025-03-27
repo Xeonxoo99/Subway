@@ -79,7 +79,7 @@ function Header() {
         >
             {/* Global nav */}
             <div
-                className={`transition-all duration-500 ${isScrolled || isNavVisible ? 'bg-[#fffff0] text-[#000000]' : 'bg-transparent text-white'
+                className={`transition-all duration-500 ${isScrolled || isNavVisible ? 'bg-[#fbf050] text-[#000000]' : 'bg-transparent text-white'
                     } ${isNavVisible ? 'max-h-96' : 'max-h-32'} overflow-hidden`}
                 onMouseLeave={handleNavMouseLeave}
             >
@@ -100,7 +100,7 @@ function Header() {
                                     key={menu.id}
                                     onMouseEnter={() => handleMouseEnter(menu.id)}
                                     onMouseLeave={handleNavMouseLeave}
-                                    className={`relative cursor-pointer transition-opacity duration-300 ${menu.highlight ? 'text-[#1ec156]' : ''}`}
+                                    className={`relative cursor-pointer transition-opacity duration-500 ${menu.highlight ? 'text-[#1ec156]' : ''}`}
                                 >
                                     <Link to={menu.link}>{menu.text}</Link>
                                 </li>
@@ -112,7 +112,7 @@ function Header() {
 
             {/* Submenu */}
             <div
-                className={`w-full bg-[#fffff0]  text-[#000000] shadow-md transition-all duration-300 overflow-hidden ${isSubMenuVisible ? 'max-h-96 border-t border-gray-100' : 'max-h-0'
+                className={`w-full bg-[#fbf050]  text-[#000000] shadow-md transition-all duration-300 overflow-hidden ${isSubMenuVisible ? 'max-h-96 border-t border-amber-300' : 'max-h-0'
                     }`}
                 onMouseEnter={handleSubMenuMouseEnter}
                 onMouseLeave={handleSubMenuMouseLeave}

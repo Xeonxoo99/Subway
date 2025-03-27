@@ -158,12 +158,12 @@ function Store() {
             {/* 매장 리스트 영역 */}
 
             <article className="w-full">
-                <div className="w-11/12 mx-auto flex gap-14">
+                <div className="w-11/12 h-full mx-auto flex gap-14">
                     {
                         store.map((store) => (
-                            <article className="store-card cursor-pointer">
-                                <img className="w-full h-[200px] object-cover" src={store.img} alt={store.store} />
-                                <div className="store-details">
+                            <article key={store} className="w-1/4 h-5/6 bg-[#fce07f] cursor-pointer">
+                                <img className="w-full h-1/2 object-cover" src={store.img} alt={store.store} />
+                                <div className="store-details flex flex-col">
                                     <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>
                                     <div className="flex flex-row">
                                         <p className="store-label">주소</p>
@@ -184,7 +184,7 @@ function Store() {
                 </div>
             </article>
             {/* 버튼 영역 */}
-            <footer className="mt-14">
+            <footer className="">
                 <button className="btn-section">전체 매장보기</button>
             </footer>
         </section>

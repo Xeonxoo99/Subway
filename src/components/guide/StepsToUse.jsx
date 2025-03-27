@@ -1,4 +1,4 @@
-{/* 슬라이드 효과 없음 */}
+{/* 슬라이드 효과 없음 */ }
 // import { useState } from "react";
 
 // const steps = [
@@ -80,7 +80,7 @@
 // export default StepsToUse;
 
 
-{/* 슬라이드 효과 / 원하는대로 구현되지는 않음 */}
+{/* 슬라이드 효과 / 원하는대로 구현되지는 않음 */ }
 // import { useState, useEffect } from "react";
 // import step1 from "@assets/guide/step1-1.png"
 // import step2 from "@assets/guide/step1-2.png"
@@ -188,7 +188,7 @@
 //                                     </div>
 //                                 </div>
 //                             ))}
-                            
+
 //                         </div>
 //                     </div>
 //                 </div>
@@ -200,9 +200,9 @@
 // export default StepsToUse;
 
 
-{/* 슬라이드 효과 원하는대로 구현해보기 */}
+{/* 슬라이드 효과 원하는대로 구현해보기 */ }
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import step1 from "@assets/guide/step1-1.png"
 import step2 from "@assets/guide/step1-2.png"
 import step3 from "@assets/guide/step1-3.png"
@@ -286,19 +286,17 @@ function StepsToUse() {
                     {/* 오른쪽 이미지 슬라이드 */}
                     <div className="absolute bg-[#f3c716] opacity-30 w-92 h-92 rounded-full left-240 transform -translate-x-1/2"></div>
                     <div className="w-full h-3/4 flex items-center overflow-hidden">
-                        <div className="flex w-[3000px] transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${num * 600}px)`}}>
-                        {images.map((image, index) => (
-                                <div key={index} className={"w-[800px] h-full flex items-center"}>
-                                    {/* 왼쪽 이미지 */}
-                                    {/* <div className="relative w-full h-full"> */}
-                                        <img src={image.img} alt={image.alt} className="w-4/5 pl-5 scale-110 z-10 transition-opacity duration-500"
-                                        style={{
-                                            opacity: index === num || index === num + 1 ? 1 : 0, // 현재 step과 그 다음 step에만 opacity 1
-                                        }} />
-                                    {/* </div> */}
+                        <div className="flex pl-7 w-[4000px] transition-transform duration-500 ease-in-out"
+                            style={{ transform: `translateX(-${num * 600}px)` }}>
+                            {images.map((image, index) => (
+                                <div key={index} className="w-[600px] flex items-center justify-center">
+                                    <img
+                                        src={image.img}
+                                        alt={image.alt}
+                                        className={`transition-all duration-500 ${index === num ? "scale-100" : "scale-70 opacity-70"}`}
+                                    />
                                 </div>
                             ))}
-                            
                         </div>
                     </div>
                 </div>

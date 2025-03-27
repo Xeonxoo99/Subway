@@ -2,11 +2,18 @@ html {
     scroll-behavior: smooth;
 }
 
-button, a{
+button,
+a {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+
 @import "tailwindcss";
+
 
 /***************************** HEADER 영역 *****************************/
 /* header 밑줄 효과 */
@@ -51,6 +58,7 @@ button, a{
     from {
         transform: translateY(-10px);
     }
+
     to {
         transform: translateY(0);
     }
@@ -60,6 +68,7 @@ button, a{
     from {
         transform: translateY(10px);
     }
+
     to {
         transform: translateY(0);
     }
@@ -84,7 +93,8 @@ button, a{
 }
 
 .submenu.show {
-    max-height: 1000px;  /* 임의로 큰 값으로 설정 */
+    max-height: 1000px;
+    /* 임의로 큰 값으로 설정 */
     opacity: 1;
 }
 
@@ -108,12 +118,12 @@ button, a{
 }
 
 /* 매장 카드 */
-.store-card {
-    @apply w-1/4 bg-[#fce07f];
-}
+/* .store-card {
+    @apply w-1/4 h-1/2 bg-[#fce07f];
+} */
 
 .store-details {
-    @apply flex flex-col pl-3 py-7 gap-3;
+    @apply flex flex-col pl-3 py-12 gap-3;
 }
 
 .store-label {
@@ -146,4 +156,3 @@ dt {
 .footer-content address {
     @apply opacity-60;
 }
-

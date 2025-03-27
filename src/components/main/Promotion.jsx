@@ -164,7 +164,7 @@ function Promotion() {
                         >
                             {/* 프로모션 이미지와 제목 */}
                             <div
-                                className={`w-full h-[260px] pt-8 rounded-t-full flex flex-col items-center`}
+                                className={`w-full h-4/6 pt-8 rounded-t-full flex flex-col items-center`}
                                 style={{ backgroundColor: isEven ? '#ffcc32' : '#018c3b' }}
                             >
                                 {Array.isArray(promotion.image) ? (
