@@ -120,14 +120,16 @@ function Header() {
                         } ${isNavVisible ? 'max-h-96' : 'max-h-32'} overflow-hidden`}
                     onMouseLeave={handleNavMouseLeave}
                 >
-                    <div className="w-4/6 flex justify-between mx-auto items-center py-6">
-                        <a href="/" className="w-3xs">
-                            <img
-                                src={logo}
-                                alt="Subway Logo"
-                                className="w-fit cursor-pointer"
-                            />
-                        </a>
+                    <div className="w-4/6 flex justify-between mx-auto items-center py-6 ">
+                    <a href="/" className="w-3xs sm:w-sm">
+    <img
+        src={logo}
+        alt="Subway Logo"
+        className="cursor-pointer"
+        style={{ width: '60%', height: 'auto' }} // width를 100%로 설정하여 컨테이너 크기에 맞게 조정
+    />
+</a>
+
                         {/* 글로벌 네비게이션 */}
                         <nav className="hidden lg:flex">
                             <ul className="w-xl flex justify-around items-center space-x-6 font-semibold text-[clamp(1rem,1vw,1.3rem)]">
