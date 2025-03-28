@@ -7,6 +7,19 @@
     font-style: normal;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    overflow-x: hidden;
+}
+
 html {
     scroll-behavior: smooth;
 }

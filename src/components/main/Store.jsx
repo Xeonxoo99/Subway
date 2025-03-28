@@ -148,7 +148,7 @@ function Store() {
     ]
 
     return (
-        <section className="w-full h-screen flex flex-col items-center">
+        <section className="w-full h-screen flex flex-col items-center overflow-hidden">
             {/* 타이틀 영역 */}
             <header className="text-center pt-[40px] pb-[80px]">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold">Store</h1>

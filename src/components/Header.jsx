@@ -76,20 +76,20 @@ function Header() {
     const handleMenuClick = (menuId) => {
         setActiveMenu((prevActiveMenu) => {
             const newActiveMenu = prevActiveMenu === menuId ? null : menuId;
-            
+
             setSubmenuHeight(() => {
                 const newHeightState = Object.keys(subMenus).reduce((acc, key) => {
                     acc[key] = key === newActiveMenu ? (submenuRefs.current[key]?.scrollHeight + "px") : "0px";
                     return acc;
                 }, {});  // prev는 더 이상 사용되지 않음.
-    
+
                 return newHeightState;
             });
-    
+
             return newActiveMenu;
         });
     };
-    
+
 
     const menuItems = [
         { id: 'menu', text: '메뉴소개', link: '/' },
@@ -113,7 +113,7 @@ function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 w-full z-60 transition-all duration-300 overflow-hidden ${visible ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`fixed top-0 left-0 min-w-full z-60 transition-all duration-300 overflow-x-hidden ${visible ? 'translate-y-0' : '-translate-y-full'} max-lg:max-w-full`}
             >
                 <div
                     className={`transition-all duration-500 ${isScrolled || isNavVisible ? 'bg-[#ffffff] text-[#000000]' : 'bg-transparent text-white'
@@ -121,18 +121,18 @@ function Header() {
                     onMouseLeave={handleNavMouseLeave}
                 >
                     <div className="w-4/6 flex justify-between mx-auto items-center py-6 ">
-                    <a href="/" className="w-3xs sm:w-sm">
-    <img
-        src={logo}
-        alt="Subway Logo"
-        className="cursor-pointer"
-        style={{ width: '60%', height: 'auto' }} // width를 100%로 설정하여 컨테이너 크기에 맞게 조정
-    />
-</a>
+                        <a href="/" className="w-3xs sm:w-sm">
+                            <img
+                                src={logo}
+                                alt="Subway Logo"
+                                className="cursor-pointer"
+                                style={{ width: '60%', height: 'auto' }} // width를 100%로 설정하여 컨테이너 크기에 맞게 조정
+                            />
+                        </a>
 
                         {/* 글로벌 네비게이션 */}
                         <nav className="hidden lg:flex">
-                            <ul className="w-xl flex justify-around items-center space-x-6 font-semibold text-[clamp(1rem,1vw,1.3rem)]">
+                            <ul className="w-full flex justify-around items-center space-x-6 font-semibold text-[clamp(0.9rem,1vw,1.3rem)]">
                                 {menuItems.map((menu) => (
                                     <li
                                         key={menu.id}
@@ -200,7 +200,7 @@ function Header() {
                         <li key={menu.id} className="w-full">
                             <button
                                 className="flex justify-between items-center w-full text-left py-2 px-4 hover:text-[#1ec156]"
-                                onClick={() => handleMenuClick(menu.id)} 
+                                onClick={() => handleMenuClick(menu.id)}
                             >
                                 {menu.text}
                                 <span>{activeMenu === menu.id ? '▲' : '▼'}</span>
@@ -210,7 +210,7 @@ function Header() {
                             {subMenus[menu.id] && (
                                 <ul
                                     ref={(el) => (submenuRefs.current[menu.id] = el)} // ref 추가
-                                    className="ml-6 mt-2 space-y-2 text-sm rounded-md p-2 transition-all duration-300 overflow-hidden"
+                                    className="pl-6 mt-2 space-y-2 text-sm rounded-md p-2 transition-all duration-300 overflow-hidden"
                                     style={{
                                         maxHeight: submenuHeight[menu.id] || "0px",
                                         opacity: activeMenu === menu.id ? 1 : 0, // 부드러운 효과 추가
