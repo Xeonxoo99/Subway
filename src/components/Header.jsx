@@ -113,7 +113,7 @@ function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 w-full z-60 transition-all duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`fixed top-0 left-0 w-full z-60 transition-all duration-300 overflow-hidden ${visible ? 'translate-y-0' : '-translate-y-full'}`}
             >
                 <div
                     className={`transition-all duration-500 ${isScrolled || isNavVisible ? 'bg-[#ffffff] text-[#000000]' : 'bg-transparent text-white'
