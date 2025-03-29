@@ -1,42 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // 클래식
-import chicken_slice from '@assets/main/bestItem/chicken_slice.png'
-import Italian_bmt from '@assets/main/bestItem/Italian_bmt.png'
-import egg_mayo from '@assets/main/bestItem/egg_mayo.png'
-import Ham from '@assets/main/bestItem/Ham.png'
+import chicken_slice from '@assets/main/bestItem/chicken_slice.png';
+import Italian_bmt from '@assets/main/bestItem/Italian_bmt.png';
+import egg_mayo from '@assets/main/bestItem/egg_mayo.png';
+import Ham from '@assets/main/bestItem/Ham.png';
 
 // 프레쉬&라이트
-import mushroom from '@assets/main/bestItem/mushroom.png'
-import veggie from '@assets/main/bestItem/veggie.png'
-import turkey from '@assets/main/bestItem/turkey.png'
-import bacon_avocado from '@assets/main/bestItem/bacon_avocado.png'
+import mushroom from '@assets/main/bestItem/mushroom.png';
+import veggie from '@assets/main/bestItem/veggie.png';
+import turkey from '@assets/main/bestItem/turkey.png';
+import bacon_avocado from '@assets/main/bestItem/bacon_avocado.png';
 
 // 클래식, 프레쉬&라이트
-import egg_slice from '@assets/main/bestItem/egg_slice.png'
-import Rotisserie_Barbecue_Chicken from '@assets/main/bestItem/Rotisserie_Barbecue_Chicken.png'
+import egg_slice from '@assets/main/bestItem/egg_slice.png';
+import Rotisserie_Barbecue_Chicken from '@assets/main/bestItem/Rotisserie_Barbecue_Chicken.png';
 
 //프리미엄
-import chicken_teriyaki from '@assets/main/bestItem/chicken_teriyaki.png'
-import steak from '@assets/main/bestItem/steak.png'
-import spicy_italian from '@assets/main/bestItem/spicy_italian.png'
-import shrimp from '@assets/main/bestItem/shrimp.png'
-import spicy_shrimp from '@assets/main/bestItem/spicy_shrimp.png'
-import pulled_pork from '@assets/main/bestItem/pulled_pork.png'
+import chicken_teriyaki from '@assets/main/bestItem/chicken_teriyaki.png';
+import steak from '@assets/main/bestItem/steak.png';
+import spicy_italian from '@assets/main/bestItem/spicy_italian.png';
+import shrimp from '@assets/main/bestItem/shrimp.png';
+import spicy_shrimp from '@assets/main/bestItem/spicy_shrimp.png';
+import pulled_pork from '@assets/main/bestItem/pulled_pork.png';
 
 // 아침메뉴
-import hashbrown from '@assets/main/bestItem/hashbrown.png'
-import ham_egg_cheese from '@assets/main/bestItem/ham_egg_cheese.png'
-import ham_egg_cheese_wrap from '@assets/main/bestItem/ham_egg_cheese_wrap.png'
-import west_egg_cheese from '@assets/main/bestItem/pulled_pork.png'
-import chicken_bacon_mini_wrap from '@assets/main/bestItem/chicken_bacon_mini_wrap.png'
+import hashbrown from '@assets/main/bestItem/hashbrown.png';
+import ham_egg_cheese from '@assets/main/bestItem/ham_egg_cheese.png';
+import ham_egg_cheese_wrap from '@assets/main/bestItem/ham_egg_cheese_wrap.png';
+import west_egg_cheese from '@assets/main/bestItem/pulled_pork.png';
+import chicken_bacon_mini_wrap from '@assets/main/bestItem/chicken_bacon_mini_wrap.png';
 
-
-
+// 화살표
+import left_arrow from '@assets/arrow/left.png';
+import right_arrow from '@assets/arrow/right.png';
 
 function BestItem() {
-    const [activeBtn, setActiveBtn] = useState(0)
+    const [activeBtn, setActiveBtn] = useState(0);
 
     const items = [
         // 클래식
@@ -70,43 +71,65 @@ function BestItem() {
         { id: 22, title: '풀드포크 바비큐', mini_title: 'Pulled Pork Barbecue', img: west_egg_cheese },
         { id: 23, title: '쉬림프', mini_title: 'Shrimp', img: chicken_bacon_mini_wrap },
         { id: 24, title: '스파이시 쉬림프', mini_title: 'Spicy Shrimp', img: spicy_shrimp },
-    ]
+    ];
 
-    const btn = ['클래식', '프레쉬 & 라이트', '프리미엄', '아침메뉴']
+    const btn = ['클래식', '프레쉬 & 라이트', '프리미엄', '아침메뉴'];
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    // 한 페이지에 보여줄 아이템 수
+    useEffect(() => {
+        const handleResize = () => {
+            const newWidth = window.innerWidth;
+            setWindowWidth(newWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const itemsPerPage = 6;
     const startIndex = activeBtn * itemsPerPage;
     const visibleItems = items.slice(startIndex, startIndex + itemsPerPage);
 
+    const [num, setNum] = useState(2);
+
+    const nextStep = () => {
+        if (num < itemsPerPage + 1) setNum(num + 1);
+    };
+
+    const prevStep = () => {
+        if (num > 0) setNum(num - 1);
+    };
+
     return (
-        <>
-            <div className="w-full h-screen" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
-                {/* 제목 섹션 */}
-                <div className="text-center pt-8 pb-12">
-                    <h1 className="text-[80px] text-[#018c3b] font-extrabold">Best Item</h1>
-                    <h3 className="text-[20px]">서브웨이의 인기제품을 소개합니다</h3>
+        <div className="w-full h-screen overflow-hidden" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
+            {/* 제목 섹션 */}
+            <div className="text-center pt-8 pb-12">
+                <h1 className="text-[80px] text-[#018c3b] font-extrabold">Best Item</h1>
+                <h3 className="text-[20px]">서브웨이의 인기제품을 소개합니다</h3>
+            </div>
+
+            <div className="w-3/5 mx-auto max-xl:w-4/5">
+                {/* 버튼 섹션 */}
+                <div className="w-fit mx-auto grid grid-cols-4 gap-4 max-xl:grid-cols-2">
+                    {btn.map((category, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveBtn(index)}
+                            className={`w-44 border-2 border-[#009132] rounded-full px-6 py-2 mx-6 max-xl:rounded-xl
+                                ${activeBtn === index ? 'bg-[#018c3b] text-[#fce07f]' : 'text-[#018c3b]'}`}
+                        >
+                            {category}
+                        </button>
+                    ))}
                 </div>
 
-                <div className='w-3/5 mx-auto'>
-                    {/* 버튼 섹션 */}
-                    <div className="flex justify-center gap-10">
-                        {btn.map((category, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setActiveBtn(index)}
-                                className={`w-44 border-2 border-[#009132] rounded-full px-6 py-2 
-                                    ${activeBtn === index ? 'bg-[#018c3b] text-[#fce07f]' : 'text-[#018c3b]'}`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* 메뉴 섹션 */}
-                    <div className='best-item-content grid grid-cols-3 gap-8 justify-items-center py-16'>
+                {/* 메뉴 섹션1 (데스크탑) */}
+                {windowWidth >= 1024 && (
+                    <div className="best-item-content grid grid-cols-3 gap-12 justify-items-center py-20">
                         {visibleItems.map((item) => (
-                            <div key={item.id} className='flex flex-col text-center cursor-pointer'>
+                            <div key={item.id} className="flex flex-col text-center cursor-pointer">
                                 <motion.img
                                     src={item.img}
                                     alt={item.mini_title}
@@ -119,10 +142,40 @@ function BestItem() {
                             </div>
                         ))}
                     </div>
-                </div>
+                )}
+
+                {/* 메뉴 섹션2 (모바일) */}
+                {windowWidth < 1024 && (
+                    <div className="w-full h-3/5 relative">
+                        <div
+                            className="m-best-item-content w-[3120px] transition-transform duration-500 ease-in-out h-1/2 flex flex-nowrap gap-16 pt-40 items-center"
+                            style={{ transform: `translateX(calc(50% - 300px - ${num * 510}px))` }}
+                        >
+                            {visibleItems.map((item) => (
+                                <div key={item.id} className="w-[456px] h-[205px] flex flex-col text-center cursor-pointer">
+                                    <img
+                                        src={item.img}
+                                        alt={item.mini_title}
+                                        className="w-[456px] h-[205px] flex-shrink-0"
+                                    />
+                                    <p>{item.mini_title}</p>
+                                    <h2>{item.title}</h2>
+                                </div>
+                            ))}
+                        </div>
+                        <div>
+                            <button onClick={prevStep} className="absolute left-10 w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff]">
+                                <img src={left_arrow} alt="left_arrow" className="mx-auto" />
+                            </button>
+                            <button onClick={nextStep} className="absolute right-10 w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff]">
+                                <img src={right_arrow} alt="right_arrow" className="mx-auto" />
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default BestItem
+export default BestItem;

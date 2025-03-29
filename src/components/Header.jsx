@@ -216,6 +216,7 @@ function Header() {
                                         opacity: activeMenu === menu.id ? 1 : 0, // 부드러운 효과 추가
                                     }}
                                 >
+                                    {/* 여기서도 클릭 시 이용 방법으로 넘어가야함 */}
                                     {subMenus[menu.id].map((subMenu, idx) => (
                                         <li key={idx}>
                                             <Link

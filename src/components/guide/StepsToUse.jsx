@@ -209,6 +209,9 @@ import step3 from "@assets/guide/step1-3.png"
 import step4 from "@assets/guide/step1-4.png"
 import step5 from "@assets/guide/step1-5.png"
 
+import left_arrow from '@assets/arrow/left.png'
+import right_arrow from '@assets/arrow/right.png'
+
 const steps = [
     {
         title: "주문하기",
@@ -278,8 +281,8 @@ function StepsToUse() {
                         <hr className="w-28 my-10" />
                         <p className="mt-2 h-2/3 text-gray-700 whitespace-pre-line">{steps[num].description}</p>
                         <div className="mt-6 flex gap-4">
-                            <button onClick={prevStep} className="w-16 h-16 border-0 rounded-full bg-[#008e3c] text-[#ffffff] text-3xl" disabled={num === 0}>〈</button>
-                            <button onClick={nextStep} className="w-16 h-16 border-0 rounded-full bg-[#008e3c] text-[#ffffff] text-3xl" disabled={num === steps.length - 1}>〉</button>
+                            <button onClick={prevStep} className="w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff] text-3xl" disabled={num === 0}><img src={left_arrow} alt="left_arrow" className='mx-auto' /></button>
+                            <button onClick={nextStep} className="w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff] text-3xl" disabled={num === steps.length - 1}><img src={right_arrow} alt="right_arrow" className='mx-auto' /></button>
                         </div>
                     </div>
 

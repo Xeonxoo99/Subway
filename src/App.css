@@ -142,10 +142,28 @@ a {
     @apply font-semibold;
 }
 
+.m-best-item-content img {
+    @apply mb-12;
+}
+
+.m-best-item-content p {
+    @apply text-[12px];
+    @apply text-[#987703];
+}
+
+.m-best-item-content h2 {
+    @apply text-[22px];
+    @apply text-[#018c3b];
+    @apply font-semibold;
+}
+
+
 /* 매장 카드 */
 /* .store-card {
     @apply w-1/4 h-1/2 bg-[#fce07f];
 } */
+
+/******************************************** STORE 영역 ********************************************/
 
 .store-details {
     @apply flex flex-col pl-3 py-12 gap-3;
