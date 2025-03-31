@@ -8,7 +8,7 @@ import SearchBetter from '../../components/main/SearchBetter'
 import Offer from '../../components/main/Offer'
 import Store from '../../components/main/Store'
 import FollowUs from '../../components/main/FollowUs'
-import Footer from '../../components/main/Footer'
+import Footer from '../../components/Footer'
 
 function Layout() {
     const location = useLocation();

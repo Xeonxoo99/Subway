@@ -75,7 +75,7 @@ function Store() {
         <section className="relative w-full h-screen flex flex-col items-center overflow-hidden">
             {/* 타이틀 영역 */}
             <header className="text-center pt-[40px] pb-[80px]">
-                <h1 className="text-[80px] text-[#018c3b] font-extrabold">Store</h1>
+                <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl max-sm:pb-[30px]">Store</h1>
                 <h3 className="text-[20px]">주변에 가까운 서브웨이 매장을 확인해 보세요!</h3>
             </header>
 
