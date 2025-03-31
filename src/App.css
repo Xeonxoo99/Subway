@@ -146,39 +146,7 @@ a {
     position: relative; /* Swiper 컨테이너에 relative 추가 */
   }
 
-  .swiper-button-next,
-  .swiper-button-prev {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5); /* 배경색 */
-      color: white; /* 화살표 색 */
-      border-radius: 50%; /* 원형 모양 */
-      padding: 10px;
-      z-index: 10; /* 버튼이 다른 요소 위에 나타나도록 설정 */
-  }
-  
-  .swiper-button-next {
-      right: 10px; /* 오른쪽 버튼 */
-  }
-  
-  .swiper-button-prev {
-      left: 10px; /* 왼쪽 버튼 */
-  }
 
-/******************************************** STORE 영역 ********************************************/
-
-.store-details {
-    @apply flex flex-col pl-3 py-12 gap-3;
-}
-
-.store-label {
-    @apply w-[80px] text-sm;
-}
-
-.store-value {
-    @apply text-sm;
-}
 
 /* 버튼 공통 스타일 */
 .btn-section {

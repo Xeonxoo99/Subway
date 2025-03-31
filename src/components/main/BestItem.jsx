@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -172,17 +171,17 @@ function BestItem() {
                                 </SwiperSlide>
                             ))}
                             <div className='flex justify-around'>
-                            <button
+                                <button
                                     onClick={() => swiperInstance?.slidePrev()}
                                     className="w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center"
                                 >
-                                    <img src={left} alt={left}/>
+                                    <img src={left} alt={left} />
                                 </button>
                                 <button
                                     onClick={() => swiperInstance?.slideNext()}
                                     className="w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center"
                                 >
-                                    <img src={right} alt={right}/>
+                                    <img src={right} alt={right} />
                                 </button>
                             </div>
                         </Swiper>
