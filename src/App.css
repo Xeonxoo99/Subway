@@ -142,26 +142,29 @@ a {
     @apply font-semibold;
 }
 
-.m-best-item-content img {
-    @apply mb-12;
-}
+.best-item-swiper {
+    position: relative; /* Swiper 컨테이너에 relative 추가 */
+  }
 
-.m-best-item-content p {
-    @apply text-[12px];
-    @apply text-[#987703];
-}
-
-.m-best-item-content h2 {
-    @apply text-[22px];
-    @apply text-[#018c3b];
-    @apply font-semibold;
-}
-
-
-/* 매장 카드 */
-/* .store-card {
-    @apply w-1/4 h-1/2 bg-[#fce07f];
-} */
+  .swiper-button-next,
+  .swiper-button-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5); /* 배경색 */
+      color: white; /* 화살표 색 */
+      border-radius: 50%; /* 원형 모양 */
+      padding: 10px;
+      z-index: 10; /* 버튼이 다른 요소 위에 나타나도록 설정 */
+  }
+  
+  .swiper-button-next {
+      right: 10px; /* 오른쪽 버튼 */
+  }
+  
+  .swiper-button-prev {
+      left: 10px; /* 왼쪽 버튼 */
+  }
 
 /******************************************** STORE 영역 ********************************************/
 

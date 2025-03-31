@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/swiper-bundle.css';
+import 'swiper/css/navigation';
+import '../../App.css';
 
 // 클래식
 import chicken_slice from '@assets/main/bestItem/chicken_slice.png';
@@ -33,44 +44,45 @@ import west_egg_cheese from '@assets/main/bestItem/pulled_pork.png';
 import chicken_bacon_mini_wrap from '@assets/main/bestItem/chicken_bacon_mini_wrap.png';
 
 // 화살표
-import left_arrow from '@assets/arrow/left.png';
-import right_arrow from '@assets/arrow/right.png';
+import left from '@assets/arrow/left.png'
+import right from '@assets/arrow/right.png'
 
 function BestItem() {
     const [activeBtn, setActiveBtn] = useState(0);
+    const [swiperInstance, setSwiperInstance] = useState(null);
 
     const items = [
         // 클래식
-        { id: 1, title: '에그 슬라이스', mini_title: 'Egg Slice', img: egg_slice },
-        { id: 2, title: '치킨 슬라이스', mini_title: 'Chicken Slice', img: chicken_slice },
-        { id: 3, title: '로티세리 바비큐 치킨', mini_title: 'Rotisserie Barbecue Chicken', img: Rotisserie_Barbecue_Chicken },
-        { id: 4, title: '이탈리안 비엠티', mini_title: 'Egg Slice', img: Italian_bmt },
-        { id: 5, title: '에그 마요', mini_title: 'Egg Mayo', img: egg_mayo },
-        { id: 6, title: '햄', mini_title: 'Ham', img: Ham },
+        { id: 1, miniId: 1, title: '에그 슬라이스', mini_title: 'Egg Slice', img: egg_slice },
+        { id: 2, miniId: 2, title: '치킨 슬라이스', mini_title: 'Chicken Slice', img: chicken_slice },
+        { id: 3, miniId: 3, title: '로티세리 바비큐 치킨', mini_title: 'Rotisserie Barbecue Chicken', img: Rotisserie_Barbecue_Chicken },
+        { id: 4, miniId: 4, title: '이탈리안 비엠티', mini_title: 'Egg Slice', img: Italian_bmt },
+        { id: 5, miniId: 5, title: '에그 마요', mini_title: 'Egg Mayo', img: egg_mayo },
+        { id: 6, miniId: 6, title: '햄', mini_title: 'Ham', img: Ham },
 
         // 프레쉬 & 라이트
-        { id: 7, title: '머쉬룸', mini_title: 'Mushroom', img: mushroom },
-        { id: 8, title: '베지', mini_title: 'Veggie Delite', img: veggie },
-        { id: 9, title: '터키', mini_title: 'Turkey', img: turkey },
-        { id: 10, title: '터키 베이컨 아보카도', mini_title: 'Turkey Bacon Avocado', img: bacon_avocado },
-        { id: 11, title: '에그 슬라이스', mini_title: 'Egg Slice', img: egg_slice },
-        { id: 12, title: '로티세리 바비큐 치킨', mini_title: 'Rotisserie Barbecue Chicken', img: Rotisserie_Barbecue_Chicken },
+        { id: 7, miniId: 7, title: '머쉬룸', mini_title: 'Mushroom', img: mushroom },
+        { id: 8, miniId: 8, title: '베지', mini_title: 'Veggie Delite', img: veggie },
+        { id: 9, miniId: 9, title: '터키', mini_title: 'Turkey', img: turkey },
+        { id: 10, miniId: 10, title: '터키 베이컨 아보카도', mini_title: 'Turkey Bacon Avocado', img: bacon_avocado },
+        { id: 11, miniId: 11, title: '에그 슬라이스', mini_title: 'Egg Slice', img: egg_slice },
+        { id: 12, miniId: 12, title: '로티세리 바비큐 치킨', mini_title: 'Rotisserie Barbecue Chicken', img: Rotisserie_Barbecue_Chicken },
 
         // 프리미엄
-        { id: 13, title: '치킨 데리야끼', mini_title: 'Chicken Teriyaki', img: chicken_teriyaki },
-        { id: 14, title: '스테이크 & 치즈', mini_title: 'Steak & Cheese', img: steak },
-        { id: 15, title: '스파이시 이탈리안', mini_title: 'Spicy Italian', img: spicy_italian },
-        { id: 16, title: '풀드포크 바비큐', mini_title: 'Pulled Pork Barbecue', img: pulled_pork },
-        { id: 17, title: '쉬림프', mini_title: 'Shrimp', img: shrimp },
-        { id: 18, title: '스파이시 쉬림프', mini_title: 'Spicy Shrimp', img: spicy_shrimp },
+        { id: 13, miniId: 13, title: '치킨 데리야끼', mini_title: 'Chicken Teriyaki', img: chicken_teriyaki },
+        { id: 14, miniId: 14, title: '스테이크 & 치즈', mini_title: 'Steak & Cheese', img: steak },
+        { id: 15, miniId: 15, title: '스파이시 이탈리안', mini_title: 'Spicy Italian', img: spicy_italian },
+        { id: 16, miniId: 16, title: '풀드포크 바비큐', mini_title: 'Pulled Pork Barbecue', img: pulled_pork },
+        { id: 17, miniId: 17, title: '쉬림프', mini_title: 'Shrimp', img: shrimp },
+        { id: 18, miniId: 18, title: '스파이시 쉬림프', mini_title: 'Spicy Shrimp', img: spicy_shrimp },
 
         // 아침메뉴
-        { id: 19, title: '치킨 데리야끼', mini_title: 'Chicken Teriyaki', img: hashbrown },
-        { id: 20, title: '스테이크 & 치즈', mini_title: 'Steak & Cheese', img: ham_egg_cheese },
-        { id: 21, title: '스파이시 이탈리안', mini_title: 'Spicy Italian', img: ham_egg_cheese_wrap },
-        { id: 22, title: '풀드포크 바비큐', mini_title: 'Pulled Pork Barbecue', img: west_egg_cheese },
-        { id: 23, title: '쉬림프', mini_title: 'Shrimp', img: chicken_bacon_mini_wrap },
-        { id: 24, title: '스파이시 쉬림프', mini_title: 'Spicy Shrimp', img: spicy_shrimp },
+        { id: 19, miniId: 19, title: '치킨 데리야끼', mini_title: 'Chicken Teriyaki', img: hashbrown },
+        { id: 20, miniId: 20, title: '스테이크 & 치즈', mini_title: 'Steak & Cheese', img: ham_egg_cheese },
+        { id: 21, miniId: 21, title: '스파이시 이탈리안', mini_title: 'Spicy Italian', img: ham_egg_cheese_wrap },
+        { id: 22, miniId: 22, title: '풀드포크 바비큐', mini_title: 'Pulled Pork Barbecue', img: west_egg_cheese },
+        { id: 23, miniId: 23, title: '쉬림프', mini_title: 'Shrimp', img: chicken_bacon_mini_wrap },
+        { id: 24, miniId: 24, title: '스파이시 쉬림프', mini_title: 'Spicy Shrimp', img: spicy_shrimp },
     ];
 
     const btn = ['클래식', '프레쉬 & 라이트', '프리미엄', '아침메뉴'];
@@ -86,21 +98,17 @@ function BestItem() {
         handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
+
     }, []);
+
+    const miniItems = items.map((item) => ({
+        ...item,
+        key: `${item.id}-${item.miniId}-${item.title}`,  // id, miniId, title을 조합한 고유한 key 설정
+    }));
 
     const itemsPerPage = 6;
     const startIndex = activeBtn * itemsPerPage;
-    const visibleItems = items.slice(startIndex, startIndex + itemsPerPage);
-
-    const [num, setNum] = useState(2);
-
-    const nextStep = () => {
-        if (num < itemsPerPage + 1) setNum(num + 1);
-    };
-
-    const prevStep = () => {
-        if (num > 0) setNum(num - 1);
-    };
+    const visibleItems = miniItems.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <div className="w-full h-screen overflow-hidden" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
@@ -110,7 +118,7 @@ function BestItem() {
                 <h3 className="text-[20px]">서브웨이의 인기제품을 소개합니다</h3>
             </div>
 
-            <div className="w-3/5 mx-auto max-xl:w-4/5">
+            <div className="w-3/5 mx-auto max-xl:w-full">
                 {/* 버튼 섹션 */}
                 <div className="w-fit mx-auto grid grid-cols-4 gap-4 max-xl:grid-cols-2">
                     {btn.map((category, index) => (
@@ -125,11 +133,10 @@ function BestItem() {
                     ))}
                 </div>
 
-                {/* 메뉴 섹션1 (데스크탑) */}
-                {windowWidth >= 1024 && (
+                {windowWidth >= 1024 ? (
                     <div className="best-item-content grid grid-cols-3 gap-12 justify-items-center py-20">
                         {visibleItems.map((item) => (
-                            <div key={item.id} className="flex flex-col text-center cursor-pointer">
+                            <div key={item.key} className="flex flex-col text-center cursor-pointer">
                                 <motion.img
                                     src={item.img}
                                     alt={item.mini_title}
@@ -142,35 +149,43 @@ function BestItem() {
                             </div>
                         ))}
                     </div>
-                )}
-
-                {/* 메뉴 섹션2 (모바일) */}
-                {windowWidth < 1024 && (
-                    <div className="w-full h-3/5 relative">
-                        <div
-                            className="m-best-item-content w-[3120px] transition-transform duration-500 ease-in-out h-1/2 flex flex-nowrap gap-16 pt-40 items-center"
-                            style={{ transform: `translateX(calc(50% - 300px - ${num * 510}px))` }}
+                ) : (
+                    <div className="w-full h-full mx-auto pt-40">
+                        <Swiper
+                            modules={[Navigation]}
+                            spaceBetween={10}
+                            slidesPerView={1.5}
+                            centeredSlides={true}
+                            initialSlide={0}
+                            onSwiper={(swiper) => setSwiperInstance(swiper)}
                         >
-                            {visibleItems.map((item) => (
-                                <div key={item.id} className="w-[456px] h-[205px] flex flex-col text-center cursor-pointer">
+
+                            {visibleItems.map((miniItem) => (
+                                <SwiperSlide key={miniItem.key} className="w-[465px] h-[205px] flex flex-col text-center cursor-pointer">
                                     <img
-                                        src={item.img}
-                                        alt={item.mini_title}
-                                        className="w-[456px] h-[205px] flex-shrink-0"
+                                        src={miniItem.img}
+                                        alt={miniItem.mini_title}
+                                        className="w-4/5 h-[205px] mb-12 mx-auto max-sm:w-full"
                                     />
-                                    <p>{item.mini_title}</p>
-                                    <h2>{item.title}</h2>
-                                </div>
+                                    <p className="text-[12px] text-[#987703]">{miniItem.mini_title}</p>
+                                    <h2 className="text-[22px] text-[#018c3b] font-semibold">{miniItem.title}</h2>
+                                </SwiperSlide>
                             ))}
-                        </div>
-                        <div>
-                            <button onClick={prevStep} className="absolute left-10 w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff]">
-                                <img src={left_arrow} alt="left_arrow" className="mx-auto" />
-                            </button>
-                            <button onClick={nextStep} className="absolute right-10 w-24 h-24 border-0 rounded-full bg-[#008e3c] text-[#ffffff]">
-                                <img src={right_arrow} alt="right_arrow" className="mx-auto" />
-                            </button>
-                        </div>
+                            <div className='flex justify-around'>
+                            <button
+                                    onClick={() => swiperInstance?.slidePrev()}
+                                    className="w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center"
+                                >
+                                    <img src={left} alt={left}/>
+                                </button>
+                                <button
+                                    onClick={() => swiperInstance?.slideNext()}
+                                    className="w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center"
+                                >
+                                    <img src={right} alt={right}/>
+                                </button>
+                            </div>
+                        </Swiper>
                     </div>
                 )}
             </div>

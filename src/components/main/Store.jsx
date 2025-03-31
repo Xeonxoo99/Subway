@@ -118,6 +118,7 @@ function Store() {
 
     const store = [
         {
+            id:1,
             img: anyang,
             store: '안양평촌학원가점',
             address: '경기 안양시 동안구 평촌대로 119',
@@ -125,6 +126,7 @@ function Store() {
             time: '매일 8:00 - 22:00'
         },
         {
+            id:2,
             img: anyang_plaza,
             store: 'AK플라자금정점',
             address: '경기 군포시 엘에스로 143',
@@ -132,6 +134,7 @@ function Store() {
             time: '매일 7:00 - 21:50'
         },
         {
+            id:3,
             img: anyang_bumgye,
             store: '안양범계점',
             address: '경기 안양시 동안구 시민대로 167',
@@ -139,6 +142,7 @@ function Store() {
             time: '매일 8:00 - 22:30'
         },
         {
+            id:4,
             img: anyang_pch,
             store: '안양평촌역점',
             address: '경기 안양시 동안구 관평로170번길',
@@ -161,7 +165,7 @@ function Store() {
                 <div className="w-11/12 h-full mx-auto flex gap-14">
                     {
                         store.map((store) => (
-                            <article key={store} className="w-1/4 h-5/6 bg-[#fce07f] cursor-pointer">
+                            <article key={store.id} className="w-1/4 h-5/6 bg-[#fce07f] cursor-pointer">
                                 <img className="w-full h-1/2 object-cover" src={store.img} alt={store.store} />
                                 <div className="store-details flex flex-col">
                                     <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>
