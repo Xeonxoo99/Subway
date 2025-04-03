@@ -71,7 +71,7 @@ function SearchBetter() {
     }, []);
 
     return (
-        <div className="w-full h-screen pt-12">
+        <section className="w-full h-screen pt-12">
             <div className='h-1/2 pt-24 relative flex flex-col items-center'>
                 <span className='text-9xl absolute top-16 -z-10'>SEARCH</span>
                 <div ref={imgWrapperRef} className='img_wraper relative w-full h-full'>
@@ -85,7 +85,7 @@ function SearchBetter() {
                 <p className='text-center pt-24'>우리는 더 좋은 써브웨이를 위해 <br/> 매일 노력합니다.</p>
                 <button className="mt-14 w-44 h-16 border-none bg-[#009132] px-6 py-2 text-[#ffffff] max-md:w-56 max-md:h-24 max-md:text-2xl">BRAND STORY</button>
             </div>
-        </div>
+        </section>
     );
 }
 

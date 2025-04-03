@@ -41,7 +41,7 @@ function Offer() {
 
     return (
         <>
-                <div className="relative w-full h-screen bg-[#008e3c] max-md:pt-14 max-sm:pt-20">
+                <section className="relative w-full h-screen bg-[#008e3c] max-md:pt-14 max-sm:pt-20">
                     {/* 모집 소개 */}
                     <div className="w-4/5 flex flex-row justify-center pt-24 pr-12 relative max-2xl:w-full max-2xl:pr-0 max-xl:w-full max-xl:pr-0">
                         {/* 텍스트 */}
@@ -88,7 +88,7 @@ function Offer() {
                     </div>
                     {/* 배경에 텍스트 */}
                     <img className='absolute -bottom-2' src={subway} alt="subway" />
-                </div>
+                </section>
         </>
     )
 }

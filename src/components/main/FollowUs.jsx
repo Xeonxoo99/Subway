@@ -10,7 +10,7 @@ function FollowUs() {
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
-        <div className="w-full h-screen bg-[#f0f0f0] overflow-hidden">
+        <section className="w-full h-screen bg-[#f0f0f0] overflow-hidden">
             {/* 타이틀 */}
             <header className="text-center pt-[40px] pb-[80px] max-sm:pb-[60px]">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl">Follow Us</h1>
@@ -39,7 +39,7 @@ function FollowUs() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

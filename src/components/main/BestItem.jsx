@@ -110,7 +110,7 @@ function BestItem() {
     const visibleItems = miniItems.slice(startIndex, startIndex + itemsPerPage);
 
     return (
-        <div className="w-full h-screen overflow-hidden max-sm:pt-10" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
+        <section className="w-full h-screen overflow-hidden max-sm:pt-10" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
             {/* 제목 섹션 */}
             <div className="text-center pt-8 pb-12">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl">Best Item</h1>
@@ -158,7 +158,6 @@ function BestItem() {
                             initialSlide={0}
                             onSwiper={(swiper) => setSwiperInstance(swiper)}
                         >
-
                             {visibleItems.map((miniItem) => (
                                 <SwiperSlide key={miniItem.key} className="w-[465px] h-[205px] flex flex-col text-center cursor-pointer">
                                     <img
@@ -188,7 +187,7 @@ function BestItem() {
                     </div>
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 

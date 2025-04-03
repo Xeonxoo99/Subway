@@ -169,7 +169,7 @@ function Promotion() {
     };
 
     return (
-        <div className="w-full h-screen flex flex-col items-center max-lg:overflow-hidden">
+        <section className="w-full h-screen flex flex-col items-center max-lg:overflow-hidden">
             {/* 프로모션 헤더 */}
             <div className="text-center pt-[40px] pb-[80px]">
                 <h1 className="text-[#018c3b] font-extrabold max-sm:text-6xl max-sm:pb-[30px]">Promotion</h1>
@@ -288,7 +288,7 @@ function Promotion() {
                     </a>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
 
