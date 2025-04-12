@@ -169,9 +169,9 @@ function Promotion() {
     };
 
     return (
-        <section className="w-full h-screen flex flex-col items-center max-lg:overflow-hidden">
+        <section className="w-full h-screen flex flex-col items-center max-lg:overflow-hidden pt-[160px] pb-[180px]">
             {/* 프로모션 헤더 */}
-            <div className="text-center pt-[40px] pb-[80px]">
+            <div className="text-center pb-[80px]">
                 <h1 className="text-[#018c3b] font-extrabold max-sm:text-6xl max-sm:pb-[30px]">Promotion</h1>
                 <h3 className="text-[20px]">서브웨이의 다양한 혜택과 이벤트를 만나보세요</h3>
             </div>
