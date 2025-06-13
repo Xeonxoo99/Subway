@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '@assets/main/subway_logo.svg';
 import { Menu, X } from 'lucide-react';
@@ -108,7 +109,12 @@ function Header() {
         franchise: ['써브웨이 프랜차이즈', '가맹관련 FAQ', '가맹신청 ﹒ 문의', '지사안내', '사업설명회'],
         order: ['FAST﹒SUB', 'HOME﹒SUB', '단체주문'],
     };
+    
+    const navigate = useNavigate();
 
+    const handleClick = () => {
+      navigate('/guide'); // 이용방법 페이지 경로
+    };
 
     return (
         <>
@@ -134,7 +140,7 @@ function Header() {
                         <nav className="hidden lg:flex">
                             <ul className="w-full flex justify-around items-center space-x-6 font-semibold text-[clamp(0.9rem,1vw,1.3rem)]">
                                 {menuItems.map((menu) => (
-                                    <li
+                                    <li onClick={handleClick}
                                         key={menu.id}
                                         onMouseEnter={() => handleMouseEnter(menu.id)}
                                         onMouseLeave={handleNavMouseLeave}
@@ -180,7 +186,7 @@ function Header() {
                     >
                         <div className="w-3/5 mx-auto flex items-center justify-center gap-6 py-6 text-[clamp(0.875rem,1vw,1.1rem)] font-semibold list-none">
                             {subMenus[hoveredMenu]?.map((item, index) => (
-                                <li key={index} className={`relative cursor-pointer opacity-60 ${index !== 0 ? 'li_items' : ''} hover:opacity-100 underline-effect`}>
+                                <li onClick={handleClick} key={index} className={`relative cursor-pointer opacity-60 ${index !== 0 ? 'li_items' : ''} hover:opacity-100 underline-effect`}>
                                     {item}
                                 </li>
                             ))}
