@@ -29,10 +29,10 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import searchBetter_menu from '@assets/main/search/searchBetter_menu.png';
-import searchBetter_menu2 from '@assets/main/search/searchBetter_menu2.png';
-import searchBetter_menu3 from '@assets/main/search/searchBetter_menu3.png';
-import searchBetter_menu4 from '@assets/main/search/searchBetter_menu4.png';
+import searchBetter_menu from '@assets/main/search/searchBetter_menu2.png';
+import searchBetter_menu2 from '@assets/main/search/searchBetter_menu3.png';
+import searchBetter_menu3 from '@assets/main/search/searchBetter_menu4.png';
+import searchBetter_menu4 from '@assets/main/search/searchBetter_menu5.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
