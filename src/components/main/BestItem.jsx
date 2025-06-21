@@ -110,9 +110,9 @@ function BestItem() {
     const visibleItems = miniItems.slice(startIndex, startIndex + itemsPerPage);
 
     return (
-        <section className="w-full h-screen overflow-hidden max-sm:pt-10" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
+        <section className="w-full overflow-hidden pt-40 pb-32 max-sm:pt-10" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
             {/* 제목 섹션 */}
-            <div className="text-center pt-8 pb-12">
+            <div className="text-center pb-12">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl">Best Item</h1>
                 <h3 className="text-[20px]">서브웨이의 인기제품을 소개합니다</h3>
             </div>
@@ -124,7 +124,7 @@ function BestItem() {
                         <button
                             key={index}
                             onClick={() => setActiveBtn(index)}
-                            className={`w-44 border-2 border-[#009132] rounded-full px-6 py-2 mx-6 max-xl:rounded-xl
+                            className={`w-40 border-2 border-[#009132] rounded-full  py-2.5 mx-2 max-xl:rounded-xl
                                 ${activeBtn === index ? 'bg-[#018c3b] text-[#fce07f]' : 'text-[#018c3b]'}`}
                         >
                             {category}
@@ -133,9 +133,9 @@ function BestItem() {
                 </div>
 
                 {windowWidth >= 1024 ? (
-                    <div className="best-item-content grid grid-cols-3 gap-12 justify-items-center py-20">
+                    <div className="best-item-content grid grid-cols-3 gap-10 justify-items-center py-20">
                         {visibleItems.map((item) => (
-                            <div key={item.key} className="flex flex-col text-center cursor-pointer">
+                            <div key={item.key} className="flex flex-col text-center cursor-pointer mb-6">
                                 <motion.img
                                     src={item.img}
                                     alt={item.mini_title}

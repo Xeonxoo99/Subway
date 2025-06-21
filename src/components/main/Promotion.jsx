@@ -169,7 +169,7 @@ function Promotion() {
     };
 
     return (
-        <section className="w-full h-screen flex flex-col items-center max-lg:overflow-hidden pt-[160px] pb-[180px]">
+        <section className="w-full flex flex-col items-center max-lg:overflow-hidden pt-[160px] pb-[180px] px-8">
             {/* 프로모션 헤더 */}
             <div className="text-center pb-[80px]">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl max-sm:pb-[30px]">Promotion</h1>
@@ -265,10 +265,10 @@ function Promotion() {
                                     {convertNewlinesToBreaks(promotion.title)}
                                 </p>
                             </div>
-                            <div className="w-full mt-4">
+                            <div className="w-full mt-8">
                                 <p className="text-[#018c3b] font-bold">{promotion.date}</p>
-                                <hr className="border-t-2 border-[#018c3b] my-2 w-full" />
-                                <p className="text-sm text-[#000000]">
+                                <hr className="border-t-2 border-[#018c3b] my-4 w-full" />
+                                <p className="text-lg text-[#000000]">
                                     {convertNewlinesToBreaks(promotion.description)}
                                 </p>
                             </div>
@@ -279,7 +279,7 @@ function Promotion() {
             )}
 
             {/* 페이지네이션 버튼 */}
-            <div className="flex gap-12 pt-[180px] max-lg:hidden">
+            <div className="flex gap-8 pt-[120px] max-lg:hidden">
                 {[...Array(totalPages)].map((_, pageIndex) => (
                     <a key={pageIndex} onClick={() => setCurrentPage(pageIndex)}>
                         <button

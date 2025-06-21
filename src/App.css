@@ -158,7 +158,7 @@ a {
 
 .footer-content li {
     @apply opacity-60;
-    @apply text-sm;
+    @apply text-lg;
 }
 
 .footer-content p,

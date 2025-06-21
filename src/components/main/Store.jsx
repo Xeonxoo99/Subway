@@ -10,10 +10,13 @@ import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import '../../App.css';
 
-import anyang from '@assets/main/store/anyang.png'
-import anyang_plaza from '@assets/main/store/plaza.png'
-import anyang_bumgye from '@assets/main/store/anyang_bumgye.png'
-import anyang_pch from '@assets/main/store/anyang_pch.png'
+import store1 from '@assets/main/store/store1.jpg'
+import store2 from '@assets/main/store/store2.jpg'
+import store3 from '@assets/main/store/store3.jpg'
+import store4 from '@assets/main/store/store4.jpg'
+import store5 from '@assets/main/store/store5.jpg'
+
+
 
 import left from '@assets/arrow/left.png'
 import right from '@assets/arrow/right.png'
@@ -23,7 +26,7 @@ function Store() {
     const store = [
         {
             id: 1,
-            img: anyang,
+            img: store1,
             store: '안양평촌학원가점',
             address: '경기 안양시 동안구 평촌대로 119',
             phone: '031-3850-5027',
@@ -31,7 +34,7 @@ function Store() {
         },
         {
             id: 2,
-            img: anyang_plaza,
+            img: store2,
             store: 'AK플라자금정점',
             address: '경기 군포시 엘에스로 143',
             phone: '0507-1330-5476',
@@ -39,7 +42,7 @@ function Store() {
         },
         {
             id: 3,
-            img: anyang_bumgye,
+            img: store3,
             store: '안양범계점',
             address: '경기 안양시 동안구 시민대로 167',
             phone: '031-440-8490',
@@ -47,7 +50,16 @@ function Store() {
         },
         {
             id: 4,
-            img: anyang_pch,
+            img: store4,
+            store: '안양평촌역점',
+            address: '경기 안양시 동안구 관평로170번길',
+            phone: '0507-1390-8490',
+            time: '매일 8:00 - 22:00'
+        },
+        
+        {
+            id: 5,
+            img: store5,
             store: '안양평촌역점',
             address: '경기 안양시 동안구 관평로170번길',
             phone: '0507-1390-8490',
@@ -72,7 +84,7 @@ function Store() {
     }, []);
 
     return (
-        <section className="relative w-full h-screen flex flex-col items-center overflow-hidden">
+        <section className="relative w-full flex flex-col items-center overflow-hidden pt-40 pb-32">
             {/* 타이틀 영역 */}
             <header className="text-center pt-[40px] pb-[80px]">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl max-sm:pb-[30px]">Store</h1>
@@ -83,24 +95,24 @@ function Store() {
                 <>
                     {/* 매장 리스트 영역 */}
                     <article className="w-full">
-                        <div className="w-11/12 h-full mx-auto flex gap-14">
+                        <div className="h-full mx-auto flex gap-14">
                             {
                                 store.map((store) => (
-                                    <article key={store.id} className="w-1/4 h-5/6 bg-[#fce07f] cursor-pointer">
+                                    <article key={store.id} className="w-1/4 bg-[#fce07f] cursor-pointer">
                                         <img className="w-full h-1/2 object-cover" src={store.img} alt={store.store} />
-                                        <div className="flex flex-col pl-3 pt-10 pb-18 gap-3">
-                                            <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>
+                                        <div className="flex flex-col pl-7 pt-8 pb-12 gap-3">
+                                            <h4 className="text-2xl text-[#018c3b] font-semibold mb-2">{store.store}</h4>
                                             <div className="flex flex-row">
-                                                <p className="w-[80px] text-sm">주소</p>
-                                                <p className="text-sm">{store.address}</p>
+                                                <p className="w-[80px] ">주소</p>
+                                                <p className="">{store.address}</p>
                                             </div>
                                             <div className="flex flex-row">
-                                                <p className="w-[80px] text-sm">전화번호</p>
-                                                <p className="text-sm">{store.phone}</p>
+                                                <p className="w-[80px] ">전화번호</p>
+                                                <p className="">{store.phone}</p>
                                             </div>
                                             <div className="flex flex-row">
-                                                <p className="w-[80px] text-sm">운영시간</p>
-                                                <p className="text-sm">{store.time}</p>
+                                                <p className="w-[80px] ">운영시간</p>
+                                                <p className="">{store.time}</p>
                                             </div>
                                         </div>
                                     </article>
@@ -109,8 +121,8 @@ function Store() {
                         </div>
                     </article>
                     {/* 버튼 영역 */}
-                    <footer className="">
-                        <button className="btn-section">전체 매장보기</button>
+                    <footer className="mt-20">
+                        <button className=' border-none bg-[#009132] px-8 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] '>전체 매장보기</button>
                     </footer>
                 </>
             ) : (

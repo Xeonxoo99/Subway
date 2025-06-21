@@ -49,16 +49,17 @@ function SearchBetter() {
                 y: 150, // 이미지가 내려가는 거리
                 scrollTrigger: {
                     trigger: imgWrapperRef.current,
-                    start: 'top 40%',
-                    end: 'top 30%',
+                    start: 'top 80%',
+                    end: 'bottom 20%',
                     scrub: 2,
                 },
+
             });
 
             ScrollTrigger.create({
                 trigger: imgWrapperRef.current,
-                start: 'top 40%',
-                end: 'top 30%',
+                start: 'top 80%',
+                end: 'bottom 20%',
                 scrub: 2,
                 onUpdate: (self) => {
                     const imageIndex = Math.min(Math.floor(self.progress * images.length), images.length - 1);
@@ -71,19 +72,19 @@ function SearchBetter() {
     }, []);
 
     return (
-        <section className="w-full h-screen pt-12">
-            <div className='h-1/2 pt-24 relative flex flex-col items-center'>
-                <span className='text-9xl absolute top-16 -z-10'>SEARCH</span>
-                <div ref={imgWrapperRef} className='img_wraper relative w-full h-full'>
+        <section className="w-full py-40">
+            <div className=' pt-24 relative flex flex-col items-center'>
+                <span className='text-7xl lg:text-[170px]  '>SEARCH</span>
+                <div ref={imgWrapperRef} className='img_wraper absolute w-full h-full'>
                     <div className='absolute left-[50%] translate-x-[-50%]'>
-                        <img ref={imgRef} className='w-2xs' src={images[currentImage]} alt="searchBetter_menu" />
+                        <img ref={imgRef} className='w-[600px]' src={images[currentImage]} alt="searchBetter_menu" />
                     </div>
                 </div>
-                <span className='text-9xl absolute -bottom-12'>BETTER</span>
+                <span className='text-7xl lg:text-[170px] mt-[300px] relative z-10'>BETTER</span>
             </div>
             <div className='flex flex-col items-center'>
-                <p className='text-center pt-24'>우리는 더 좋은 써브웨이를 위해 <br/> 매일 노력합니다.</p>
-                <button className="mt-14 w-44 h-16 border-none bg-[#009132] px-6 py-2 text-[#ffffff] max-md:w-56 max-md:h-24 max-md:text-2xl">BRAND STORY</button>
+                <p className='text-3xl text-center pt-24'>우리는 더 좋은 써브웨이를 위해 <br className='hidden lg:block'/> 매일 노력합니다.</p>
+                <button className="mt-18 h-16 border-none bg-[#009132] px-8 py-4 text-[#ffffff] lg:text-3xl">BRAND STORY</button>
             </div>
         </section>
     );

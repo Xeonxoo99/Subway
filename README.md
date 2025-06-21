@@ -1,3 +1,12 @@
+# 250621
+1. 프리텐다드 폰트 적용 -> 굵은폰트 적용
+2. 섹션2 드래그도 적용
+3. fadeIn 아래에서 위로 
+4. 숫자 증가 104
+5. div overflow : hidden 걸어서 SNS 적용
+6. 모바일 , 서브페이지 PSD 폰트크기, h-screen 위아래 패딩, 폰트굵기, 여백
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
