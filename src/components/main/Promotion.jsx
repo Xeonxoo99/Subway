@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import { motion } from 'framer-motion';
 import eggslice from '@assets/main/promotion/eggslice_menu.png';
 import greenS from '@assets/main/promotion/greenS.png';
@@ -126,36 +131,64 @@ function Promotion() {
         },
     ];
     // 현재 페이지 상태 관리
-    const [currentPage, setCurrentPage] = useState(0);
-    const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth <= 1400 ? 4 : 5);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    // const [currentPage, setCurrentPage] = useState(0);
+    // const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth <= 1400 ? 4 : 5);
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        const handleResize = () => {
-            const newWidth = window.innerWidth;
-            setWindowWidth(newWidth);
-            setItemsPerPage(newWidth <= 1400 ? 4 : newWidth <= 1100 ? 3 : 5);
-            setCurrentPage(0); // 화면 크기 변경 시 첫 페이지로 리셋
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         const newWidth = window.innerWidth;
+    //         setWindowWidth(newWidth);
+    //         setItemsPerPage(newWidth <= 1400 ? 4 : newWidth <= 1100 ? 3 : 5);
+    //         setCurrentPage(0); // 화면 크기 변경 시 첫 페이지로 리셋
+    //     };
     
-        window.addEventListener("resize", handleResize);
-        // 초기 로딩 시 한번 실행
-        handleResize(); 
+    //     window.addEventListener("resize", handleResize);
+    //     // 초기 로딩 시 한번 실행
+    //     handleResize(); 
     
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    //     return () => window.removeEventListener("resize", handleResize);
+    // }, []);
 
-    // 현재 페이지의 프로모션 아이템을 잘라내기
-    const currentItems = promotions.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
-    const currentItems1 = promotions;
+    // // 현재 페이지의 프로모션 아이템을 잘라내기
+    // const currentItems = promotions.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+    // const currentItems1 = promotions;
 
-    // 마지막 페이지에서 요소 개수가 부족할 경우, placeholder 추가
-    while (currentItems.length < itemsPerPage) {
-        currentItems.push({ id: `placeholder-${currentItems.length}`, isPlaceholder: true });
-    }
+    // // 마지막 페이지에서 요소 개수가 부족할 경우, placeholder 추가
+    // while (currentItems.length < itemsPerPage) {
+    //     currentItems.push({ id: `placeholder-${currentItems.length}`, isPlaceholder: true });
+    // }
 
-    // 전체 페이지 수 계산
-    const totalPages = Math.ceil(promotions.length / itemsPerPage);
+    // // 전체 페이지 수 계산
+    // const totalPages = Math.ceil(promotions.length / itemsPerPage);
+
+    const [swiperInstance, setSwiperInstance] = useState(null);
+    // [수정] '활성화된 그룹'의 인덱스를 저장할 상태 (0, 1, 2)
+    const [activeGroupIndex, setActiveGroupIndex] = useState(0);
+
+    // [수정] 페이지 그룹(버튼) 설정. 각 버튼이 이동할 시작 인덱스를 정의합니다.
+    const pageGroups = [
+        { name: '신메뉴', startIndex: 0 },
+        { name: '지난 프로모션', startIndex: 5 },
+        { name: '이벤트', startIndex: 10 },
+    ];
+
+    const handlePageClick = (index) => {
+        if (swiperInstance) {
+            swiperInstance.slideTo(index);
+        }
+    };
+
+    const handleSlideChange = (swiper) => {
+        const currentIndex = swiper.activeIndex;
+        if (currentIndex >= pageGroups[2].startIndex) {
+            setActiveGroupIndex(2);
+        } else if (currentIndex >= pageGroups[1].startIndex) {
+            setActiveGroupIndex(1);
+        } else {
+            setActiveGroupIndex(0);
+        }
+    };
 
 
     // 문자열 내 줄바꿈 문자를 <br /> 태그로 변환해주는 함수
@@ -177,113 +210,69 @@ function Promotion() {
             </div>
 
             {/* 프로모션 아이템 목록 */}
-            {windowWidth < 1024 ? (
-                <div className='w-full h-1/2 flex flex-nowrap overflow-x-scroll gap-6 pl-8'>
-                {currentItems1.map((promotion, index) => {
-                    const isEven = index % 2 === 0;
-                    return (
-                        <div
-                            key={promotion.id}
-                            className="w-[333px] flex flex-col cursor-pointer"
-                        >
-                            <div
-                                className="w-[333px] rounded-t-full flex flex-col items-center"
-                                style={{
-                                    backgroundColor: isEven ? '#ffcc32' : '#018c3b',
-                                    height: "clamp(15vh, 40vh, 35vh)",
-                                }}
-                            >
-                                {Array.isArray(promotion.image) ? (
-                                    <div className="flex flex-row justify-center w-2/6 h-4/6 pt-15">
-                                        <img className="w-full h-3/5" src={promotion.image[0]} alt="soupL" />
-                                        <img className="w-full h-3/5" src={promotion.image[1]} alt="soupR" />
-                                    </div>
-                                ) : (
-                                    <div className="w-3/6 h-4/6 flex flex-col justify-center">
-                                        <img className="w-full" src={promotion.image} alt={promotion.title} />
-                                    </div>
-                                )}
-                                <p className={`text-m text-center ${isEven ? 'text-[#000000]' : 'text-white'}`}>
-                                    {convertNewlinesToBreaks(promotion.title)}
-                                </p>
-                            </div>
-                            <div className="w-[333px] mt-4">
-                                <p className="text-[#018c3b] font-bold">{promotion.date}</p>
-                                <hr className="border-t-2 border-[#018c3b] my-2 w-full" />
-                                <p className="text-sm text-[#000000]">
-                                    {convertNewlinesToBreaks(promotion.description)}
-                                </p>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-            ) : (
-                <div className="w-full h-3/6 pl-[10px] pr-[10px] gap-9 flex flex-wrap justify-center max-xl:">
-                {currentItems.map((promotion, index) => {
-                    if (promotion.isPlaceholder) {
+            <div className="w-full px-4">
+                <Swiper
+                    // [수정] onSwiper로 인스턴스를 받아와 state에 저장
+                    onSwiper={setSwiperInstance}
+                    // [수정] 슬라이드 변경 시 currentPage state 업데이트
+                    onSlideChange={handleSlideChange}
+                    spaceBetween={30}
+                    // [수정] slidesPerView를 'auto'로 설정하면 작은 화면에서 자연스러운 스크롤이 가능합니다.
+                    // 또는 기존처럼 breakpoints를 유지해도 좋습니다.
+                    slidesPerView={5}
+                    // [수정] navigation, pagination 옵션 제거
+                    breakpoints={{
+                        320: { slidesPerView: 1, spaceBetween: 10 },
+                        640: { slidesPerView: 2, spaceBetween: 20 },
+                        1024: { slidesPerView: 3, spaceBetween: 30 },
+                        1400: { slidesPerView: 4, spaceBetween: 30 },
+                        1600: { slidesPerView: 5, spaceBetween: 30 },
+                    }}
+                    className="mySwiper"
+                >
+                    {promotions.map((promotion, index) => {
+                        const isEven = index % 2 === 0;
                         return (
-                            <div
-                                key={promotion.id}
-                                className="menu w-1/6 flex flex-col grow"
-                                style={{
-                                    width: "clamp(12vw, 40vw, 18vw)",
-                                    height: "clamp(15vh, 40vh, 35vh)",
-                                    visibility: "hidden", // 보이지 않지만 크기를 유지!!!
-                                }}
-                            ></div>
+                            <SwiperSlide key={promotion.id} style={{ height: 'auto' }}> {/*[수정] 높이 자동 조절*/}
+                                <div className="flex flex-col cursor-pointer h-full">
+                                    <div
+                                        className="w-full rounded-t-full flex flex-col items-center"
+                                        style={{ backgroundColor: isEven ? '#ffcc32' : '#018c3b', height: "300px" }}
+                                    >
+                                        {Array.isArray(promotion.image) ? (
+                                            <div className="flex flex-row justify-center items-center w-3/6 h-4/6 pt-15">
+                                                <img className="w-full h-3/5 object-contain" src={promotion.image[0]} alt="soupL" />
+                                                <img className="w-full h-3/5 object-contain" src={promotion.image[1]} alt="soupR" />
+                                            </div>
+                                        ) : (
+                                            <div className="w-3/6 h-4/6 flex justify-center items-center">
+                                                <img className="w-full h-full object-contain" src={promotion.image} alt={promotion.title} />
+                                            </div>
+                                        )}
+                                        <p className={`text-m text-center px-4 ${isEven ? 'text-[#000000]' : 'text-white'}`}>
+                                            {convertNewlinesToBreaks(promotion.title)}
+                                        </p>
+                                    </div>
+                                    <div className="w-full mt-8">
+                                        <p className="text-[#018c3b] font-bold">{promotion.date}</p>
+                                        <hr className="border-t-2 border-[#018c3b] my-4 w-full" />
+                                        <p className="text-lg text-[#000000]">
+                                            {convertNewlinesToBreaks(promotion.description)}
+                                        </p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
                         );
-                    }
-
-                    const isEven = index % 2 === 0;
-                    return (
-                        <motion.div
-                            key={promotion.id}
-                            className="menu w-1/6 flex flex-col grow cursor-pointer"
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.2, duration: 0.5 }}
-                        >
-                            <div
-                                className="w-full rounded-t-full flex flex-col items-center"
-                                style={{
-                                    backgroundColor: isEven ? '#ffcc32' : '#018c3b',
-                                    height: "clamp(15vh, 40vh, 35vh)",
-                                }}
-                            >
-                                {Array.isArray(promotion.image) ? (
-                                    <div className="flex flex-row justify-center w-2/6 h-4/6 pt-15">
-                                        <img className="w-full h-3/5" src={promotion.image[0]} alt="soupL" />
-                                        <img className="w-full h-3/5" src={promotion.image[1]} alt="soupR" />
-                                    </div>
-                                ) : (
-                                    <div className="w-3/6 h-4/6 flex flex-col justify-center">
-                                        <img className="w-full" src={promotion.image} alt={promotion.title} />
-                                    </div>
-                                )}
-                                <p className={`text-m text-center ${isEven ? 'text-[#000000]' : 'text-white'}`}>
-                                    {convertNewlinesToBreaks(promotion.title)}
-                                </p>
-                            </div>
-                            <div className="w-full mt-8">
-                                <p className="text-[#018c3b] font-bold">{promotion.date}</p>
-                                <hr className="border-t-2 border-[#018c3b] my-4 w-full" />
-                                <p className="text-lg text-[#000000]">
-                                    {convertNewlinesToBreaks(promotion.description)}
-                                </p>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                    })}
+                </Swiper>
             </div>
-            )}
 
-            {/* 페이지네이션 버튼 */}
+            {/* [수정] 기존 페이지네이션 버튼 복구 및 기능 연결 */}
             <div className="flex gap-8 pt-[120px] max-lg:hidden">
-                {[...Array(totalPages)].map((_, pageIndex) => (
-                    <a key={pageIndex} onClick={() => setCurrentPage(pageIndex)}>
+                {pageGroups.map((group, index) => (
+                    <a key={group.name} onClick={() => handlePageClick(group.startIndex)} className="cursor-pointer">
                         <button
-                            className={`w-[20px] h-[20px] bg-[#018c3b] rounded-full ${currentPage === pageIndex ? '' : 'opacity-25'}`}
+                            className={`w-[20px] h-[20px] bg-[#018c3b] rounded-full transition-opacity ${activeGroupIndex === index ? 'opacity-100' : 'opacity-25'}`}
                         ></button>
                     </a>
                 ))}
