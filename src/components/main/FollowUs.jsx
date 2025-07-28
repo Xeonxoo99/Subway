@@ -18,22 +18,23 @@ function FollowUs() {
 
             {/* content */}
             <div className="w-full flex justify-center">
-                <div className="grid grid-cols-6 gap-30 max-lg:grid-cols-5 max-lg:grid-rows-7 max-md:grid-cols-4 max-md:grid-rows-8 max-sm:grid-cols-2 max-sm:grid-rows-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6 lg:gap-20">
                     {images.map((img, index) => (
                         <div
-                            key={index}
-                            onMouseOver={() => setHoveredIndex(index)}
-                            onMouseOut={() => setHoveredIndex(null)}
-                            className={`squre w-[170px] h-[170px]   cursor-pointer transition-transform duration-300
+                            
+                            className={`overflow-hidden squre w-[170px] h-[170px] cursor-pointer 
                                 max-lg:w-[110px] max-lg:h-[110px] max-sm:w-[130px] max-sm:h-[130px]
-                                ${
-                                hoveredIndex === index ? 'scale-110' : ''
-                            }`}
+                                `}
                         >
                             <img
+                                key={index}
+                                onMouseOver={() => setHoveredIndex(index)}
+                                onMouseOut={() => setHoveredIndex(null)}
                                 src={img}
                                 alt={`Image ${index + 1}`}
-                                className="w-full h-full object-cover"
+                                className={`w-[10vw] h-[10vw] transition-transform duration-300 ${
+                                hoveredIndex === index ? 'scale-110' : ''
+                            }`}
                             />
                         </div>
                     ))}
