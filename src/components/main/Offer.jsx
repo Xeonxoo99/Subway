@@ -4,33 +4,49 @@ import { useState, useEffect, useRef } from 'react';
 import { CountUp } from 'countup.js';
 
 function Offer() {
-    const [num, setNum] = useState(0);
-    const countUpRef = useRef(null);
-    const finalNumber = 37525;
+    // 1. 각 숫자를 위한 별도의 state를 만듭니다.
+    const [num1, setNum1] = useState(0); // 전세계 매장수
+    const [num2, setNum2] = useState(0); // 진출 국가 수
+
+    // 2. 각 숫자가 표시될 h1 태그를 위한 별도의 ref를 만듭니다.
+    const countUpRef1 = useRef(null);
+    const countUpRef2 = useRef(null);
+
+    const finalNumber1 = 37525;
+    const finalNumber2 = 104;
 
     useEffect(() => {
-        // CountUp 초기화
-        const countUp = new CountUp(countUpRef.current, finalNumber, {
-            duration: 2, // 애니메이션 시간
+        // 3. 각 숫자에 대한 CountUp 인스턴스를 생성합니다.
+        const countUp1 = new CountUp(countUpRef1.current, finalNumber1, {
+            duration: 2,
             useEasing: true,
             useGrouping: true,
             separator: ',',
         });
 
-        // 스크롤 이벤트로 시작
-        // 이 부분 이해가 안됌
+        const countUp2 = new CountUp(countUpRef2.current, finalNumber2, {
+            duration: 2,
+            useEasing: true,
+            useGrouping: true, // 104는 쉼표가 필요 없지만 일관성을 위해 유지
+            separator: ',',
+        });
+
         const handleScroll = () => {
-            if (countUpRef.current && countUpRef.current.getBoundingClientRect().top < window.innerHeight) {
-                countUp.start(() => setNum(finalNumber));
+            // 하나의 요소(예: countUpRef1)가 보이면 두 애니메이션을 모두 시작합니다.
+            if (countUpRef1.current && countUpRef1.current.getBoundingClientRect().top < window.innerHeight) {
+                // 4. 두 애니메이션을 모두 시작하고, 완료 콜백에서 각자의 state를 업데이트합니다.
+                countUp1.start(() => setNum1(finalNumber1));
+                countUp2.start(() => setNum2(finalNumber2));
                 window.removeEventListener('scroll', handleScroll);
             }
         };
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
 
-        // 10초마다 숫자 증가
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // 페이지 로드 시 이미 보이는 경우를 위해 즉시 실행
+
+        // 10초마다 매장수만 증가시킵니다.
         const timer = setInterval(() => {
-            setNum(prevNum => prevNum + 1);
+            setNum1(prevNum => prevNum + 1);
         }, 10000);
 
         return () => {
@@ -65,14 +81,14 @@ function Offer() {
                                 <div className='flex flex-col max-xl:text-center max-xl:pl-20 max-md:pl-0'>
                                     <h1 className='text-xl '>전세계</h1>
                                     <div className='flex flex-row gap-0.5'>
-                                        <h1 className='text-6xl max-sm:text-5xl'>104</h1>
+                                        <h1 ref={countUpRef2} className='text-6xl max-sm:text-5xl'>{num2.toLocaleString()}</h1>
                                         <p className='text-xl leading-22 max-sm:leading-18'>개국</p>
                                     </div>
                                 </div>
                                 <div className='mr-6 max-xl:text-center max-md:mr-0'>
                                     <h1 className='text-xl '>매장수</h1>
                                     <div className='flex flex-row gap-0.5'>
-                                        <h1 ref={countUpRef} className='text-6xl max-sm:text-5xl'>{num.toLocaleString()}</h1>
+                                        <h1 ref={countUpRef1} className='text-6xl max-sm:text-5xl'>{num1.toLocaleString()}</h1>
                                         <p className='text-xl leading-22 max-sm:leading-18'>개</p>
                                     </div>
                                 </div>

@@ -7,6 +7,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard-bold';
+    src: url('../public/Pretendard-Bold.otf') format('woff');
+    font-weight: 700;
+    font-style: bold;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,8 +24,6 @@ html, body {
     
 }
 
-
-
 header {
     overflow-x: hidden;
 }
@@ -28,7 +33,8 @@ html {
 }
 
 body{
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-bold';
+    font-weight: 700;
 }
 
 button,
