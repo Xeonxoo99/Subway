@@ -127,7 +127,6 @@ function Store() {
                 </>
             ) : (
                 <>
-                    {/* 버튼 */}
                     <article className="w-full h-3/5">
                         <div className="max-xl:w-[1200px] max-lg:[900px] max-md:w-[600px] max-sm:w-[300px] h-5/6 mx-auto flex">
                             <Swiper
@@ -145,7 +144,7 @@ function Store() {
                             >
                                 {
                                     store.map((store) => (
-                                        <SwiperSlide key={store.id} className="!w-[300px] h-full duration-300 bg-[#fce07f] cursor-pointer hover:outline-[5px] outline-[#018c3b]">
+                                        <SwiperSlide key={store.id} className="!w-[300px] h-full duration-300 bg-[#fce07f] cursor-pointer">
                                             <img className="w-full h-1/2 object-cover" src={store.img} alt={store.store} />
                                             <div className="flex flex-col pl-3 pt-10 pb-20 gap-3">
                                                 <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>
@@ -183,7 +182,7 @@ function Store() {
                         </button>
                     </div>
                     {/* 버튼 영역 */}
-                    <footer className="pb-20">
+                    <footer className="mt-20 pb-20">
                         <button className="btn-section">전체 매장보기</button>
                     </footer>
                 </>

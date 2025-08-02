@@ -57,13 +57,13 @@ function Offer() {
 
     return (
         <>
-                <section className="relative w-full h-screen bg-[#008e3c] max-md:pt-14 max-sm:pt-20">
+                <section className="relative w-full bg-[#008e3c] max-md:pt-14">
                     {/* 모집 소개 */}
-                    <div className="w-4/5 flex flex-row justify-center pt-24 pr-12 relative max-2xl:w-full max-2xl:pr-0 max-xl:w-full max-xl:pr-0">
+                    <div className="w-4/5 flex flex-row justify-center pt-24 pr-12 relative max-2xl:w-full max-2xl:pr-0 max-xl:w-full max-xl:pr-0 max-sm:pt-[30px] pb-[170px]">
                         {/* 텍스트 */}
                         <div className='flex flex-col w-1/3 h-4/5 bg-[#fce07f] z-10 pt-4 pl-7 pb-14 max-2xl:w-2/5 max-xl:w-2/3 max-xl:bg-transparent max-xl:p-0 '>
                             <div>
-                                <h1 className='text-5xl font-semibold py-14 max-xl:text-center max-sm:text-[#fce07f] leading-tight'>서브웨이를 함께 <br /> 이끌 준비 되셨나요?</h1>
+                                <h1 className='text-5xl font-semibold py-14 max-xl:text-center max-sm:text-[#fce07f] leading-tight max-sm:text-4xl'>서브웨이를 함께 <br /> 이끌 준비 되셨나요?</h1>
                             </div>
 
                             {/* 중간선 */}
@@ -77,24 +77,24 @@ function Offer() {
                                     No.1 프랜차이즈입니다. </p>
                             </div>
                             {/* 매장수 */}
-                            <div className='flex flex-row gap-14 max-xl:justify-around max-md:justify-between'>
+                            <div className='flex flex-row gap-14 max-xl:justify-around max-md:justify-between max-sm:gap-2'>
                                 <div className='flex flex-col max-xl:text-center max-xl:pl-20 max-md:pl-0'>
                                     <h1 className='text-xl '>전세계</h1>
                                     <div className='flex flex-row gap-0.5'>
-                                        <h1 ref={countUpRef2} className='text-6xl max-sm:text-5xl'>{num2.toLocaleString()}</h1>
-                                        <p className='text-xl leading-22 max-sm:leading-18'>개국</p>
+                                        <h1 ref={countUpRef2} className='text-6xl max-sm:text-5xl w-[90px]'>{num2.toLocaleString()}</h1>
+                                        <p className='w-full ml-6 text-xl leading-22 max-sm:leading-18 max-sm:w-[40px] max-sm:ml-0'>개국</p>
                                     </div>
                                 </div>
-                                <div className='mr-6 max-xl:text-center max-md:mr-0'>
+                                <div className='mr-6 max-xl:text-center max-sm:ml-5'>
                                     <h1 className='text-xl '>매장수</h1>
                                     <div className='flex flex-row gap-0.5'>
                                         <h1 ref={countUpRef1} className='text-6xl max-sm:text-5xl'>{num1.toLocaleString()}</h1>
-                                        <p className='text-xl leading-22 max-sm:leading-18'>개</p>
+                                        <p className='text-xl leading-22 max-sm:leading-18 w-[20px]'>개</p>
                                     </div>
                                 </div>
                             </div>
                             <div className='pt-6 pb-3 flex max-xl:w-full max-xl:justify-center'>
-                                <button className='w-3/5 border-none bg-[#009132] px-6 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] max-md:mx-auto max-md:w-3/5 '>가맹문의 바로가기</button>
+                                <button className='w-3/5 border-none bg-[#009132] px-6 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] max-md:mx-auto max-md:w-[450px] '>가맹문의 바로가기</button>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ function Offer() {
                         <img className="w-2/3" src={offer_menu} alt="offer_menu" />
                     </div>
                     {/* 배경에 텍스트 */}
-                    <img className='absolute -bottom-2' src={subway} alt="subway" />
+                    <img className='absolute -bottom-2 max-xl:hidden' src={subway} alt="subway" />
                 </section>
         </>
     )

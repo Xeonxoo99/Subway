@@ -3,7 +3,7 @@ import insta from '@assets/main/footer/instagram.png'
 
 function Footer() {
     return (
-        <footer className="relative flex flex-col footer-content w-full h-[350px] bg-[#000000] text-[#ffffff]">
+        <footer className="relative flex flex-col footer-content w-full h-[550px] bg-[#000000] text-[#ffffff]">
             <div className="w-3/5 mx-auto max-2xl:w-4/5">
                 {/* 약관 */}
                 <nav className="py-8">
