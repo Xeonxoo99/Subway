@@ -88,7 +88,8 @@ function StepsToUse() {
 
 
     return (
-        <section className="usage_guide w-full h-screen pt-22 overflow-hidden">
+        <section className="usage_guide w-full pt-22 pb-[10vw] max-md:pb-[39.87vw
+        ] max-sm:pb-[59.87vw] overflow-hidden">
             <h1 className="text-5xl font-bold text-center mb-22 text-[#008e3c] max-md:text-left ml-10">써브웨이 <br className="md:hidden"/> 이용방법</h1>
             <div className="w-full h-2/3">
                 <div className="w-full h-full flex justify-center items-center ml-80 relative max-2xl:ml-10 max-md:flex-col max-md:items-start">
@@ -97,7 +98,7 @@ function StepsToUse() {
                         <p className="text-[#008e3c] font-semibold">STEP {num + 1}</p>
                         <h2 className="text-3xl font-bold">{steps[num].title}</h2>
                         <hr className="w-28 my-10"/>
-                        <p className="mt-2 h-2/3 text-gray-700 whitespace-pre-line">{steps[num].description}</p>
+                        <p className="mt-2 h-2/3  text-gray-700 whitespace-pre-line max-md:h-[20vw] max-sm:h-[30vw]">{steps[num].description}</p>
                         <div className="mt-6 flex gap-4">
                             <button
                                 onClick={prevStep}
@@ -119,8 +120,8 @@ function StepsToUse() {
                     {windowWidth >= 768 ? (
                         <>
                             {/* 오른쪽 이미지 슬라이드(768이상) */}
-                            <div className="w-full h-full flex items-center overflow-hidden relative mr-40 max-2xl:mr-0">
-                                <div className="absolute bg-[#f3c716] opacity-30 w-96 h-96 rounded-full z-0 transform -translate-x-[150px] translate-y-[-50%] top-[50%] left-50"></div>
+                            <div className="w-full flex items-center overflow-hidden relative mr-40 max-2xl:mr-0">
+                                <div className="absolute bg-[#f3c716] opacity-30 w-96 h-96 rounded-full z-0 transform -translate-x-[150px] translate-y-[-60%] top-[50%] left-60"></div>
                                 <Swiper
                                     modules={[Navigation]}
                                     spaceBetween={-100}
@@ -129,14 +130,14 @@ function StepsToUse() {
                                     initialSlide={0}
                                     onSwiper={setSwiperInstance}
                                     onSlideChange={handleSlideChange}
-                                    className="w-full"
+                                    className="w-full h-[25vw] max-2xl:h-[30vw] max-xl:h-[40vw] max-lg:h-[50vw]"
                                 >
                                     {images.map((image, index) => (
                                         <SwiperSlide key={index}>
                                             <img
                                                 src={image.img}
                                                 alt={image.alt}
-                                                className={`w-6/7 h-full transition-all duration-300 -ml-70 max-2xl:-ml-40 max-xl:-ml-20 ${index === num ? 'z-10' :
+                                                className={`w-[20vw] h-[20vw] transition-all duration-300 -ml-70 max-2xl:-ml-40 max-xl:-ml-40 mt-10 max-2xl:w-[30vw] max-2xl:h-[30vw] max-xl:w-[30vw] max-xl:h-[30vw] max-lg:w-[40vw] max-lg:h-[40vw] ${index === num ? 'z-10' :
                                                         index === num + 1 ? 'opacity-70 scale-60' :
                                                             index < num ? 'opacity-0' : 'opacity-100 scale-100'
                                                     }`}
@@ -149,8 +150,8 @@ function StepsToUse() {
                     ) : (
                         <>
                             {/* 오른쪽 이미지 슬라이드 (768미만) */}
-                            <div className="w-full h-3/4 flex items-end ml-30">
-                                <div className="absolute bg-[#f3c716] opacity-30 w-96 h-96 rounded-full z-0 transform -translate-x-[150px] translate-y-[-50%] top-[70%] left-100"></div>
+                            <div className="w-full h-3/4 flex items-end ml-18">
+                                <div className="absolute bg-[#f3c716] opacity-30 w-96 h-96 rounded-full z-0 transform -translate-x-[58.33vw] translate-y-[-20vw] top-[70%] left-[100vw]"></div>
                                 <Swiper
                                     modules={[Navigation]}
                                     spaceBetween={-100}
@@ -159,14 +160,14 @@ function StepsToUse() {
                                     initialSlide={0}
                                     onSwiper={setSwiperInstance}
                                     onSlideChange={handleSlideChange}
-                                    className="w-full"
+                                    className="w-full h-[60vw]"
                                 >
                                     {images.map((image, index) => (
                                         <SwiperSlide key={index}>
                                             <img
                                                 src={image.img}
                                                 alt={image.alt}
-                                                className={`w-5/7 h-full transition-all duration-300 -ml-70 max-md:-ml-0 ${index === num ? 'z-10' :
+                                                className={`w-[60vw] h-[50vw] transition-all duration-300 -ml-70 max-md:ml-[20vw] max-sm:ml-0 max-sm:mt-12 max-sm:w-[75vw] ${index === num ? 'z-10' :
                                                         index === num + 1 ? 'opacity-70 scale-60' :
                                                             index < num ? 'opacity-0' : 'opacity-100 scale-100'
                                                     }`}

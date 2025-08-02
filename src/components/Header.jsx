@@ -183,6 +183,7 @@ function Header() {
                             }`}
                         onMouseEnter={handleSubMenuMouseEnter}
                         onMouseLeave={handleSubMenuMouseLeave}
+                        onClick={handleClick}
                     >
                         <div className="w-3/5 mx-auto flex items-center justify-center gap-6 py-6 text-[clamp(0.875rem,1vw,1.1rem)] font-semibold list-none">
                             {subMenus[hoveredMenu]?.map((item, index) => (
@@ -224,7 +225,7 @@ function Header() {
                                 >
                                     {/* 여기서도 클릭 시 이용 방법으로 넘어가야함 */}
                                     {subMenus[menu.id].map((subMenu, idx) => (
-                                        <li key={idx}>
+                                        <li key={idx} onClick={handleClick}>
                                             <Link
                                                 to={`/${subMenu}`}
                                                 className="block py-1 px-3"

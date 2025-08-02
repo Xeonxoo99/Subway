@@ -93,7 +93,6 @@ function OrderGuide() {
                                     {item.name}
                                 </button>
                             ))}
-
                         </div>
                         {/* 선택된 버튼에 해당하는 설명 */}
                         <div className="flex flex-col">
@@ -212,7 +211,7 @@ function OrderGuide() {
                         <div className="w-3/5 mx-auto max-2xl:w-4/5 max-xl:w-5/6">
                             {/* 버튼 영역 */}
                             <select
-                                className="w-1/2 mx-auto h-20 bg-[#f3c716] flex rounded-4xl mb-20 text-center text-2xl text-[#ffffff] px-6 appearance-none bg-[url('@assets/arrow/bottom.png')] bg-no-repeat bg-[length:40px_20px] bg-[position:calc(100%-20px)_center]"
+                                className="w-2/3 mx-auto h-20 bg-[#f3c716] flex rounded-4xl mb-20 text-center text-2xl text-[#ffffff] px-6 appearance-none bg-[url('@assets/arrow/bottom.png')] bg-no-repeat bg-[length:40px_20px] bg-[position:calc(100%-20px)_center] max-sm:bg-[length:30px_15px]"
                                 onChange={handleSelectChange}
                                 value={selectedMenu.name} // 현재 선택된 메뉴를 반영
                             >
@@ -220,7 +219,7 @@ function OrderGuide() {
                                     <option
                                         key={index}
                                         value={item.name}
-                                        className="text-left bg-[#f3c716] text-[#008e3c] text-xl py-2 px-4 hover:bg-[#e0b514] custom-option"
+                                        className="text-left bg-[#f3c716] text-[#008e3c] text-xl py-2 px-4 hover:bg-[#e0b514]"
                                     >
                                         {item.name}
                                     </option>
@@ -230,12 +229,12 @@ function OrderGuide() {
                         {/* 선택된 버튼에 해당하는 설명 */}
                         <div className="flex flex-col mx-auto justify-center">
                             {/* 기본 설명 */}
-                            <div className="mb-10 w-2/3 h-80 mx-auto flex justify-center">
-                                <div className="text-center">
+                            <div className="mb-10 w-2/3 max-sm:w-[82vw] h-80 mx-auto flex justify-center">
+                                <div className="text-center max-sm:text-left">
                                     <h2 className="text-3xl mb-6">{selectedMenu.want}</h2>
                                     <h2 className="text-3xl font-bold text-[#008e3c] mb-10">{selectedMenu.name}</h2>
                                     <p className="mt-2 text-gray-700 whitespace-pre-line">{selectedMenu.desc}</p>
-                                    <div className="w-3/4 mt-4 mx-auto">
+                                    <div className="w-full mt-4 mx-auto">
                                         <img src={selectedMenu.img} alt="메뉴 이미지" />
                                     </div>
                                 </div>
@@ -246,14 +245,14 @@ function OrderGuide() {
                                     <p>더 맛있게 즐기는</p>
                                     <h2 className="text-5xl font-bold">TIP</h2>
                                 </div>
-                                <div className="flex flex-col w-full h-auto gap-10 top-20 left-20 max-lg:left-40">
+                                <div className="flex flex-col w-full h-auto gap-10 top-40 left-20 max-lg:left-40">
                                     {[{ img: cheese, label: "CHEESE", desc: selectedMenu.more[0].desc },
                                     { img: sauce, label: "sauce", desc: selectedMenu.more[1].desc },
                                     { img: vegetable, label: "vegetable", desc: selectedMenu.more[2].desc },
                                     ].map((item, index) => (
                                         <div key={index} className="mt-10 flex items-center w-full">
                                             {/* 이미지 */}
-                                            <div className="w-30 h-30 border-0 rounded-full bg-[#008e3c] flex flex-col items-center justify-center gap-4">
+                                            <div className="w-30 h-30 max-sm:w-[30vw] max-sm:h-[30vw] border-0 rounded-full bg-[#008e3c] flex flex-col items-center justify-center gap-4">
                                                 <img src={item.img} alt={item.label.toLowerCase()} className="w-1/2" />
                                                 <p className="text-lg text-[#f9edc2]">{item.label}</p>
                                             </div>

@@ -18,12 +18,12 @@ function FollowUs() {
 
             {/* content */}
             <div className="w-full flex justify-center">
-                <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6 lg:gap-20">
+                <div className="grid grid-cols-2 max-sm:gap-8 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-20">
                     {images.map((img, index) => (
                         <div
                             
                             className={`overflow-hidden squre w-[10vw] h-[10vw] cursor-pointer 
-                                max-    max-sm:w-[20vw] max-sm:h-[20vw]
+                                max-lg:w-[15vw] max-lg:h-[15vw]    max-sm:w-[34.21vw] max-sm:h-[34.21vw]
                                 `}
                         >
                             <img
@@ -32,7 +32,7 @@ function FollowUs() {
                                 onMouseOut={() => setHoveredIndex(null)}
                                 src={img}
                                 alt={`Image ${index + 1}`}
-                                className={`w-[10vw] h-[9.5vw] transition-transform duration-300 max-sm:w-[20vw] max-sm:h-[20vw] ${
+                                className={`w-[10vw] h-[9.5vw] transition-transform duration-300 max-lg:w-[15vw] max-lg:h-[15vw] max-sm:w-[34.21vw] max-sm:h-[34.21vw] ${
                                 hoveredIndex === index ? 'scale-110' : ''
                             }`}
                             />

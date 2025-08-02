@@ -128,7 +128,7 @@ function Store() {
             ) : (
                 <>
                     <article className="w-full h-3/5">
-                        <div className="max-xl:w-[1200px] max-lg:[900px] max-md:w-[600px] max-sm:w-[300px] h-5/6 mx-auto flex">
+                        <div className="max-xl:w-[1200px] max-lg:[900px] max-md:w-[600px] max-sm:w-[60.53vw] h-5/6 mx-auto flex">
                             <Swiper
                                 modules={[Navigation]}
                                 spaceBetween={14}
@@ -144,7 +144,7 @@ function Store() {
                             >
                                 {
                                     store.map((store) => (
-                                        <SwiperSlide key={store.id} className="!w-[300px] h-full duration-300 bg-[#fce07f] cursor-pointer">
+                                        <SwiperSlide key={store.id} className="w-[300px] h-full duration-300 bg-[#fce07f] cursor-pointer max-sm:w-[60.53vw]">
                                             <img className="w-full h-1/2 object-cover" src={store.img} alt={store.store} />
                                             <div className="flex flex-col pl-3 pt-10 pb-20 gap-3">
                                                 <h4 className="text-xl text-[#018c3b] font-semibold">{store.store}</h4>
@@ -170,13 +170,13 @@ function Store() {
                     <div className='flex justify-around '>
                         <button
                             onClick={() => swiperInstance?.slidePrev()}
-                            className="absolute bottom-[9%] left-[20%] w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center max-sm:top-[50%] max-sm:left-[4%]"
+                            className="absolute bottom-[9%] left-[20%] w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center max-sm:top-[50%] max-sm:left-[4%] max-sm:w-[13.42vw] max-sm:h-[13.42vw]"
                         >
                             <img src={left} alt={left} />
                         </button>
                         <button
                             onClick={() => swiperInstance?.slideNext()}
-                            className="absolute bottom-[9%] right-[20%] w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center max-sm:top-[50%] max-sm:right-[4%]"
+                            className="absolute bottom-[9%] right-[20%] w-16 h-16 px-4 py-4 bg-[#018c3b] text-[#fce07f] rounded-full flex justify-center max-sm:top-[50%] max-sm:right-[4%] max-sm:w-[13.42vw] max-sm:h-[13.42vw]"
                         >
                             <img src={right} alt={right} />
                         </button>
