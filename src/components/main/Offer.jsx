@@ -59,9 +59,9 @@ function Offer() {
         <>
                 <section className="relative w-full bg-[#008e3c] max-md:pt-14">
                     {/* 모집 소개 */}
-                    <div className="w-4/5 flex flex-row justify-center pt-24 pr-12 relative max-2xl:w-full max-2xl:pr-0 max-xl:w-full max-xl:pr-0 max-sm:pt-[30px] pb-[170px]">
+                    <div className="w-4/5 flex flex-row justify-center pt-24 pr-12 relative max-2xl:w-full max-2xl:pr-0 max-xl:w-full max-xl:pr-0 max-sm:pt-[30px] pb-[170px] max-sm:w-full">
                         {/* 텍스트 */}
-                        <div className='flex flex-col w-1/3 h-4/5 bg-[#fce07f] z-10 pt-4 pl-7 pb-14 max-2xl:w-2/5 max-xl:w-2/3 max-xl:bg-transparent max-xl:p-0 '>
+                        <div className='flex flex-col w-1/3 h-4/5 bg-[#fce07f] z-10 pt-4 pl-7 pb-14 max-2xl:w-2/5 max-xl:w-2/3 max-xl:bg-transparent max-xl:p-0 max-sm:w-4/5'>
                             <div>
                                 <h1 className='text-5xl font-semibold py-14 max-xl:text-center max-sm:text-[#fce07f] leading-tight max-sm:text-4xl'>서브웨이를 함께 <br /> 이끌 준비 되셨나요?</h1>
                             </div>

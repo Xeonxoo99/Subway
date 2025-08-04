@@ -240,7 +240,7 @@ function OrderGuide() {
                                 </div>
                             </div>
                             {/* 추가 팁 */}
-                            <div className="mt-40 ml-10 flex flex-col relative">
+                            <div className="mt-40 ml-10 flex flex-col relative max-lg:ml-4 max-lg:mt-64 max-sm:mt-40">
                                 <div className="flex flex-col text-[#008e3c]">
                                     <p>더 맛있게 즐기는</p>
                                     <h2 className="text-5xl font-bold">TIP</h2>
@@ -258,7 +258,7 @@ function OrderGuide() {
                                             </div>
 
                                             {/* 선 */}
-                                            <div className="w-30 border-t-1 border-[#000000] opacity-30"></div>
+                                            <div className="w-30 border-t-1 border-[#000000] opacity-30 max-sm:w-12"></div>
 
                                             {/* 원 */}
                                             <div className="w-6 h-6 border border-gray-400 rounded-full bg-white flex items-center justify-center">
@@ -279,9 +279,9 @@ function OrderGuide() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full absolute left-1/2 transform -translate-x-1/2 bottom-[-75px]">
-                        <img src={tip_bottom} alt="tip bottom" className="" />
-                        <div className="flex flex-col absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-3 max-2xl:w-3/5 max-2xl:gap-1 max-lg:right-[20%] max-lg:gap-6 max-md:gap-3 max-sm:gap-1">
+                        <div className="w-full  relative left-1/2 transform -translate-x-1/2 bottom-[-75px] ">
+                        <img src={tip_bottom} alt="tip bottom" className="max-sm:h-[60vw]" />
+                        <div className="flex flex-col absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-3 max-2xl:w-3/5 max-2xl:gap-1 max-lg:right-[20%] max-lg:gap-6 max-md:gap-3 max-md:h-4/5 max-sm:gap-8 max-sm:w-[70vw] max-sm:h-[50vw] max-sm:right-16">
                             <h4 className="text-m flex flex-row gap-2 text-[#008e3c] font-bold "><div className="border-2 border-[#008e3c] rounded-full w-6 h-6 text-center text-sm">?</div>더 많은 레시피가 궁금하신가요?</h4>
                             <p className="text-sm text-gray-400">지금 바로 서브웨이 유튜브를 검색해보세요 ! <br /> 다양한 주문 TIP이 가득합니다. </p>
                             <button className="bg-[#008e3c] py-2 border-0 rounded-xl text-[#ffffff] ">서브웨이 유튜브 바로가기 〉</button>
