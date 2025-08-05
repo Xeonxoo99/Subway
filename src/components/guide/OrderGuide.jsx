@@ -97,7 +97,7 @@ function OrderGuide() {
                         {/* 선택된 버튼에 해당하는 설명 */}
                         <div className="flex flex-col">
                             {/* 기본 설명 */}
-                            <div className="flex mb-10 w-full h-80">
+                            <div className="flex mb-14 w-full h-80">
                                 <div className="text-left w-1/2">
                                     <h2 className="text-3xl mb-6">{selectedMenu.want}</h2>
                                     <h2 className="text-3xl font-bold text-[#008e3c] mb-10">{selectedMenu.name}</h2>
