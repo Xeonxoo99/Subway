@@ -29,7 +29,7 @@ const guideSteps = [
 
 function GroupOrderGuide() {
   return (
-    <div className="w-full bg-white  pb-52 px-4 ">
+    <div className="w-full bg-white  pb-52 px-4 pt-64 max-md:py-30 max-sm:pt-40">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-[#008e3c] mb-16 md:mb-24">
         단체주문 이용방법
       </h1>
@@ -76,7 +76,7 @@ function GroupOrderGuide() {
       {/* ## 모바일용 레이아웃 (768px 미만에서만 보임) ## */}
       <div className="block md:hidden relative w-full max-w-5xl mx-auto">
         {/* 세로선 */}
-        <div className="absolute top-0 left-7 w-0.5 h-[55vh] bg-[#008e3c] -z-0" />
+        <div className="absolute top-0 left-7 w-0.5 max-md:h-[50vh] max-sm:h-[53vh] bg-[#008e3c] -z-0" />
         
         <div className="flex flex-col h-[70vh] gap-24">
           {guideSteps.map((step) => (
