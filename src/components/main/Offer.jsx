@@ -94,7 +94,7 @@ function Offer() {
                                 </div>
                             </div>
                             <div className='pt-6 pb-3 flex max-xl:w-full max-xl:justify-center'>
-                                <button className='w-3/5 border-none bg-[#009132] px-6 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] max-md:mx-auto max-md:w-[450px] '>가맹문의 바로가기</button>
+                                <button className='w-3/5 border-none bg-[#009132] px-6 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] max-md:mx-auto max-md:w-[450px] hover:bg-[#006a25] transition-all duration-200 '>가맹문의 바로가기</button>
                             </div>
                         </div>
                     </div>

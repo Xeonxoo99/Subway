@@ -29,7 +29,7 @@ const guideSteps = [
 
 function GroupOrderGuide() {
   return (
-    <div className="w-full bg-white pt-60 pb-52 px-4 max-md:pt-40 max-sm:pt-[80vw]">
+    <div className="w-full bg-white  pb-52 px-4 ">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-[#008e3c] mb-16 md:mb-24">
         단체주문 이용방법
       </h1>

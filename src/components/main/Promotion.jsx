@@ -236,8 +236,8 @@ function Promotion() {
                             <SwiperSlide key={promotion.id} style={{ height: 'auto' }}> {/*[수정] 높이 자동 조절*/}
                                 <div className="flex flex-col cursor-pointer h-full">
                                     <div
-                                        className="w-full rounded-t-full flex flex-col items-center"
-                                        style={{ backgroundColor: isEven ? '#ffcc32' : '#018c3b', height: "300px" }}
+                                        className="w-full rounded-t-full flex flex-col items-center h-[420px] lg:h-[340px]"
+                                        style={{ backgroundColor: isEven ? '#ffcc32' : '#018c3b'}}
                                     >
                                         {Array.isArray(promotion.image) ? (
                                             <div className="flex flex-row justify-center items-center w-3/6 h-4/6 pt-15">

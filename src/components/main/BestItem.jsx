@@ -110,7 +110,7 @@ function BestItem() {
     const visibleItems = miniItems.slice(startIndex, startIndex + itemsPerPage);
 
     return (
-        <section className="w-full overflow-hidden pt-40 pb-32 max-sm:pt-10" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
+        <section className="w-full overflow-hidden pt-40 pb-45" style={{ backgroundColor: 'rgba(255, 214, 71, 0.5)' }}>
             {/* 제목 섹션 */}
             <div className="text-center pb-12">
                 <h1 className="text-[80px] text-[#018c3b] font-extrabold max-sm:text-6xl">Best Item</h1>

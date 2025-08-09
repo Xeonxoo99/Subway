@@ -164,7 +164,6 @@ a {
 
 .footer-content li {
     @apply opacity-60;
-    @apply text-lg;
 }
 
 .footer-content p,

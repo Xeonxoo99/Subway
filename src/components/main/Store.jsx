@@ -122,7 +122,7 @@ function Store() {
                     </article>
                     {/* 버튼 영역 */}
                     <footer className="mt-20">
-                        <button className=' border-none bg-[#009132] px-8 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] '>전체 매장보기</button>
+                        <button className=' border-none bg-[#009132] px-8 py-4 text-[#ffffff] max-xl:bg-[#fce07f] max-xl:py-4 text-3xl max-xl:font-semibold max-xl:text-[#000000] hover:bg-[#006a25] transition-all duration-200'>전체 매장보기</button>
                     </footer>
                 </>
             ) : (
@@ -183,7 +183,7 @@ function Store() {
                     </div>
                     {/* 버튼 영역 */}
                     <footer className="mt-20 pb-20">
-                        <button className="btn-section">전체 매장보기</button>
+                        <button className="btn-section text-3xl">전체 매장보기</button>
                     </footer>
                 </>
             )}

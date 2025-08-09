@@ -3,11 +3,11 @@ import insta from '@assets/main/footer/instagram.png'
 
 function Footer() {
     return (
-        <footer className="relative flex flex-col footer-content w-full h-[550px] bg-[#000000] text-[#ffffff]">
+        <footer className="relative flex flex-col footer-content w-full pb-40 lg:pb-0 lg:h-[550px] bg-[#000000] text-[#ffffff]">
             <div className="w-3/5 mx-auto max-2xl:w-4/5">
                 {/* 약관 */}
                 <nav className="py-8">
-                    <ul className="flex gap-14 max-md:justify-between ">
+                    <ul className="flex gap-3 lg:gap-14 max-md:justify-between text-sm lg:text-lg">
                         <li >이용약관</li>
                         <li className="font-semibold ">개인정보 처리방침</li>
                         <li>써브카드</li>
@@ -21,7 +21,7 @@ function Footer() {
             <div className="w-3/5 mx-auto my-auto flex max-2xl:w-4/5 max-md:mt-10">
                 <div>
                     {/* 회사 정보 */}
-                    <section className="flex flex-wrap items-center gap-4 pb-2 font-light text-lg">
+                    <section className="flex flex-wrap items-center gap-1 lg:gap-4 pb-2 !font-light text-sm lg:text-lg">
                         <address className="not-italic !text-white !opacity-60">서울시 서초구 강남대로 35 프린스빌딩 15층</address>
                         <span className='opacity-60'> | </span>
                         <span className='opacity-60'>대표 : INSOO CHO(인수조)</span>
@@ -31,7 +31,7 @@ function Footer() {
                         <span className='opacity-60'>사업자등록번호 : 101-84-04143</span>
                     </section>
 
-                    <p className="text-lg max-md:mt-6">
+                    <p className="max-md:mt-6 text-sm lg:text-lg">
                         SUBWAY® is a Registered Trademark of Subway IP LLC.<br className='lg:hidden'/> © 2021 Subway IP LLC. All Rights Reserved.
                     </p>
                 </div>

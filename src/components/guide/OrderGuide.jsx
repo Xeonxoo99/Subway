@@ -195,23 +195,23 @@ function OrderGuide() {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[-120px]">
+                    <div className="left-1/2 transform -translate-x-1/2 bottom-[-120px]">
                         <img src={tip_bottom} alt="tip bottom" />
-                        <div className="flex flex-col absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-6 max-2xl:w-3/5 max-2xl:gap-1">
+                        <div className="flex flex-col relative lg:absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-6 max-2xl:w-3/5 max-2xl:gap-1">
                             <h4 className="text-m flex flex-row gap-2 text-[#008e3c] font-bold "><div className="border-2 border-[#008e3c] rounded-full w-6 h-6 text-center text-sm">?</div>더 많은 레시피가 궁금하신가요?</h4>
                             <p className="text-sm text-gray-400">지금 바로 서브웨이 유튜브를 검색해보세요 ! <br /> 다양한 주문 TIP이 가득합니다. </p>
-                            <button className="bg-[#008e3c] py-2 border-0 rounded-xl text-[#ffffff]">서브웨이 유튜브 바로가기 〉</button>
+                            <button className="bg-[#008e3c] py-2 border-0 rounded-xl text-[#ffffff] hover:bg-[#006a25] transition-all duration-200">서브웨이 유튜브 바로가기 〉</button>
                         </div>
                     </div>
                 </section>
             ) : (
                 <>
-                    <section className="w-full h-[200vh] bg-[#ececec] relative">
+                    <section className="w-full  bg-[#ececec] relative">
                         <h1 className="text-5xl font-bold text-center py-28 text-[#008e3c]">주문 TIP</h1>
                         <div className="w-3/5 mx-auto max-2xl:w-4/5 max-xl:w-5/6">
                             {/* 버튼 영역 */}
                             <select
-                                className="w-2/3 mx-auto h-20 bg-[#f3c716] flex rounded-4xl mb-20 text-center text-2xl text-[#ffffff] px-6 appearance-none bg-[url('@assets/arrow/bottom.png')] bg-no-repeat bg-[length:40px_20px] bg-[position:calc(100%-20px)_center] max-sm:bg-[length:30px_15px]"
+                                className="w-full mx-auto h-16 bg-[#f3c716] flex rounded-3xl mb-20 text-center text-2xl text-[#ffffff] px-6 appearance-none bg-[url('@assets/arrow/bottom.png')] bg-no-repeat bg-[length:40px_20px] bg-[position:calc(100%-20px)_center] max-sm:bg-[length:30px_15px]"
                                 onChange={handleSelectChange}
                                 value={selectedMenu.name} // 현재 선택된 메뉴를 반영
                             >
@@ -279,7 +279,7 @@ function OrderGuide() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full  relative left-1/2 transform -translate-x-1/2 bottom-[-75px] ">
+                        <div className="w-full relative h-[300px]">
                         <img src={tip_bottom} alt="tip bottom" className="max-sm:h-[60vw]" />
                         <div className="flex flex-col absolute right-6 bottom-6 w-2/5 h-3/4 bg-[#ffffff] border-0 rounded-2xl p-4 gap-3 max-2xl:w-3/5 max-2xl:gap-1 max-lg:right-[20%] max-lg:gap-6 max-md:gap-3 max-md:h-4/5 max-sm:gap-8 max-sm:w-[70vw] max-sm:h-[50vw] max-sm:right-16">
                             <h4 className="text-m flex flex-row gap-2 text-[#008e3c] font-bold "><div className="border-2 border-[#008e3c] rounded-full w-6 h-6 text-center text-sm">?</div>더 많은 레시피가 궁금하신가요?</h4>

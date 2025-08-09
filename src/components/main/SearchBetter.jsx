@@ -72,19 +72,19 @@ function SearchBetter() {
     }, []);
 
     return (
-        <section className="w-full py-40">
+        <section className="w-full  pt-32 pb-45 overflow-x-clip">
             <div className=' pt-24 relative flex flex-col items-center'>
                 <span className='text-7xl lg:text-[170px]  '>SEARCH</span>
                 <div ref={imgWrapperRef} className='img_wraper absolute w-full h-full'>
-                    <div className='absolute left-[50%] translate-x-[-50%]'>
-                        <img ref={imgRef} className='w-[600px]' src={images[currentImage]} alt="searchBetter_menu" />
+                    <div className='absolute w-full left-[50%] translate-x-[-50%] flex justify-center'>
+                        <img ref={imgRef} className='w-2/3 lg:w-[600px]' src={images[currentImage]} alt="searchBetter_menu" />
                     </div>
                 </div>
                 <span className='text-7xl lg:text-[170px] mt-[300px] relative z-10'>BETTER</span>
             </div>
             <div className='flex flex-col items-center'>
-                <p className='text-3xl text-center pt-24'>우리는 더 좋은 써브웨이를 위해 <br className='hidden lg:block'/> 매일 노력합니다.</p>
-                <button className="mt-18 h-16 border-none bg-[#009132] px-8 py-4 text-[#ffffff] lg:text-3xl">BRAND STORY</button>
+                <p className='text-xl lg:text-3xl text-center pt-24'>우리는 더 좋은 써브웨이를 위해 <br /> 매일 노력합니다.</p>
+                <button className="mt-18 h-16 border-none bg-[#009132] hover:bg-[#006a25] transition-all duration-200 px-8 py-4 text-[#ffffff] text-3xl leading-0">BRAND STORY</button>
             </div>
         </section>
     );

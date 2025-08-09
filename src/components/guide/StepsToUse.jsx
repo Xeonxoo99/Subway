@@ -137,7 +137,7 @@ function StepsToUse() {
                                             <img
                                                 src={image.img}
                                                 alt={image.alt}
-                                                className={`w-[20vw] h-[20vw] transition-all duration-300 -ml-70 max-2xl:-ml-40 max-xl:-ml-40 mt-10 max-2xl:w-[30vw] max-2xl:h-[30vw] max-xl:w-[30vw] max-xl:h-[30vw] max-lg:w-[40vw] max-lg:h-[40vw] ${index === num ? 'z-10' :
+                                                className={`w-[30vw] transition-all duration-300 -ml-70 max-2xl:-ml-40 max-xl:-ml-40 mt-10 max-2xl:w-[30vw] max-2xl:h-[30vw] max-xl:w-[30vw] max-xl:h-[30vw] max-lg:w-[40vw] max-lg:h-[40vw] ${index === num ? 'z-10' :
                                                         index === num + 1 ? 'opacity-70 scale-60' :
                                                             index < num ? 'opacity-0' : 'opacity-100 scale-100'
                                                     }`}

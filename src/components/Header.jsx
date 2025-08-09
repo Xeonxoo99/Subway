@@ -126,19 +126,19 @@ function Header() {
                         } ${isNavVisible ? 'max-h-96' : 'max-h-32'} overflow-hidden`}
                     onMouseLeave={handleNavMouseLeave}
                 >
-                    <div className="w-4/6 flex justify-between mx-auto items-center py-6 ">
-                        <a href="/" className="w-3xs sm:w-sm">
+                    <div className="lg:w-4/6 flex justify-between mx-auto items-center py-6 px-10 lg:px-0">
+                        <a href="/">
                             <img
                                 src={logo}
                                 alt="Subway Logo"
-                                className="cursor-pointer"
-                                style={{ width: '60%', height: 'auto' }} // width를 100%로 설정하여 컨테이너 크기에 맞게 조정
+                                className="cursor-pointer w-[200px]"
+                                // width를 100%로 설정하여 컨테이너 크기에 맞게 조정
                             />
                         </a>
 
                         {/* 글로벌 네비게이션 */}
                         <nav className="hidden lg:flex">
-                            <ul className="w-full flex justify-around items-center space-x-6 font-semibold text-[clamp(0.9rem,1vw,1.3rem)]">
+                            <ul className="w-full flex justify-around items-center space-x-4 xl:space-x-12 font-semibold text-base xl:text-xl">
                                 {menuItems.map((menu) => (
                                     <li onClick={handleClick}
                                         key={menu.id}
@@ -217,7 +217,7 @@ function Header() {
                             {subMenus[menu.id] && (
                                 <ul
                                     ref={(el) => (submenuRefs.current[menu.id] = el)} // ref 추가
-                                    className="pl-6 mt-2 space-y-2 text-sm rounded-md p-2 transition-all duration-300 overflow-hidden"
+                                    className="mt-2 space-y-2 text-sm rounded-md p-1.5 transition-all duration-300 overflow-hidden"
                                     style={{
                                         maxHeight: submenuHeight[menu.id] || "0px",
                                         opacity: activeMenu === menu.id ? 1 : 0, // 부드러운 효과 추가
